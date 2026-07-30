@@ -12,6 +12,7 @@ import { FormInput } from "@/components/blink/form-input";
 import { FormSelect } from "@/components/blink/form-select";
 import { FormTextarea } from "@/components/blink/form-textarea";
 import { FormCheckbox } from "@/components/blink/form-checkbox";
+import { FormFile } from "@/components/blink/form-file";
 import { Marquee } from "@/components/blink/marquee";
 import { DeliveryBadge } from "@/components/blink/delivery-badge";
 import { Button } from "@/components/ui/button";
@@ -87,16 +88,38 @@ const HUBS = [
 type ApplyForm = { name: string; phone: string; area: string; note: string; terms: boolean };
 const INITIAL: ApplyForm = { name: "", phone: "", area: "mombasa-rd", note: "", terms: false };
 
+const CV_ACCEPT = ".pdf,.doc,.docx";
+const CV_MAX_BYTES = 5 * 1024 * 1024;
+const CV_TYPES = [
+  "application/pdf",
+  "application/msword",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+];
+
 /** Glovo-style careers: role tabs, perks grid, join steps, crew voices, apply form. */
 export function Careers() {
   const [role, setRole] = useState("riders");
   const r = ROLES.find((x) => x.id === role)!;
   const [form, setForm] = useState<ApplyForm>(INITIAL);
+  const [cv, setCv] = useState<File | null>(null);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
 
   const set = <K extends keyof ApplyForm>(key: K) => (value: ApplyForm[K]) =>
     setForm((f) => ({ ...f, [key]: value }));
+
+  const setCvFile = (file: File | null) => {
+    if (file && file.size > CV_MAX_BYTES) {
+      setErrors((e) => ({ ...e, cv: "That file is bigger than 5MB — try a smaller one." }));
+      return;
+    }
+    if (file && !CV_TYPES.includes(file.type)) {
+      setErrors((e) => ({ ...e, cv: "PDF or Word documents only." }));
+      return;
+    }
+    setErrors((e) => ({ ...e, cv: "" }));
+    setCv(file);
+  };
 
   const apply = async () => {
     const next: Record<string, string> = {};
@@ -108,19 +131,25 @@ export function Careers() {
 
     setSubmitting(true);
     try {
-      const res = await fetch("/api/careers-apply", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, role: r.label }),
-      });
+      const body = new FormData();
+      body.set("name", form.name);
+      body.set("phone", form.phone);
+      body.set("role", r.label);
+      body.set("area", form.area);
+      body.set("note", form.note);
+      body.set("terms", String(form.terms));
+      if (cv) body.set("cv", cv);
+
+      const res = await fetch("/api/careers-apply", { method: "POST", body });
       if (!res.ok) {
-        const body = await res.json().catch(() => null);
-        throw new Error(body?.error ?? "Something went wrong.");
+        const resBody = await res.json().catch(() => null);
+        throw new Error(resBody?.error ?? "Something went wrong.");
       }
       toast.success("Application sent", {
         description: `${r.label} — we'll SMS you within two working days.`,
       });
       setForm(INITIAL);
+      setCv(null);
     } catch (err) {
       toast.error("Couldn't send your application", {
         description: err instanceof Error ? err.message : "Try again in a moment.",
@@ -345,6 +374,13 @@ export function Careers() {
                       onChange={(e) => set("note")(e.target.value)}
                       placeholder="I've ridden delivery routes before and I know South B well."
                     />
+                  </Field>
+                  <Field
+                    label="CV / résumé"
+                    hint="Optional — PDF or Word, up to 5MB. Not needed for rider and picker roles."
+                    error={errors.cv}
+                  >
+                    <FormFile value={cv} onChange={setCvFile} accept={CV_ACCEPT} invalid={!!errors.cv} />
                   </Field>
                   <FormCheckbox
                     checked={form.terms}

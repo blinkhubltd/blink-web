@@ -11,6 +11,7 @@ import { AppFeatures } from "./app-features";
 import { Popular } from "./popular";
 import { Pharmacy } from "./pharmacy";
 import { Voices } from "./voices";
+import { About } from "./about";
 import { LaunchRequest } from "./launch-request";
 import { Careers } from "./careers";
 import { Faq } from "./faq";
@@ -32,6 +33,7 @@ export function SiteShell() {
       <Popular />
       <Pharmacy />
       <Voices />
+      <About />
       <LaunchRequest />
       <Careers />
       <Faq />
