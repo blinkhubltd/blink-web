@@ -1,26 +1,439 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* ——— Blink brand tokens, mapped into Tailwind's utility namespaces ——— */
+  --color-blink-50: var(--blink-50);
+  --color-blink-100: var(--blink-100);
+  --color-blink-200: var(--blink-200);
+  --color-blink-300: var(--blink-300);
+  --color-blink-400: var(--blink-400);
+  --color-blink-500: var(--blink-500);
+  --color-blink-600: var(--blink-600);
+  --color-blink-700: var(--blink-700);
+  --color-blink-800: var(--blink-800);
+
+  --color-ink-50: var(--ink-50);
+  --color-ink-100: var(--ink-100);
+  --color-ink-200: var(--ink-200);
+  --color-ink-300: var(--ink-300);
+  --color-ink-400: var(--ink-400);
+  --color-ink-500: var(--ink-500);
+  --color-ink-600: var(--ink-600);
+  --color-ink-700: var(--ink-700);
+  --color-ink-800: var(--ink-800);
+  --color-ink-900: var(--ink-900);
+  --color-ink-950: var(--ink-950);
+
+  --color-success: var(--green-500);
+  --color-success-soft: var(--green-100);
+  --color-danger: var(--red-500);
+  --color-danger-soft: var(--red-100);
+  --color-info: var(--blue-500);
+  --color-info-soft: var(--blue-100);
+
+  --radius-pill: 999px;
+  --radius-card: 14px;
+  --radius-sheet: 20px;
+  --radius-header: 28px;
+  --radius-add: 12px;
+
+  --shadow-xs: 0 1px 2px rgba(10, 14, 22, 0.05);
+  --shadow-sm: 0 1px 3px rgba(10, 14, 22, 0.07), 0 1px 2px rgba(10, 14, 22, 0.04);
+  --shadow-md: 0 6px 18px -4px rgba(10, 14, 22, 0.1);
+  --shadow-lg: 0 20px 44px -14px rgba(10, 14, 22, 0.22);
+  --shadow-brand: 0 10px 26px -10px rgba(216, 159, 0, 0.55);
+  --shadow-nav: 0 -2px 12px rgba(10, 14, 22, 0.06);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ============================================================
+   Blink design tokens — ported from the supplied design system
+   (tokens/colors.css, typography.css, spacing.css, elevation.css,
+   motion.css). Sampled from the mobile app screenshots and logo.
+   ============================================================ */
+:root {
+  /* Brand yellow — the whole identity. */
+  --blink-50: #fffae8;
+  --blink-100: #fff2c2;
+  --blink-200: #ffe68f;
+  --blink-300: #ffd84f;
+  --blink-400: #ffc50b; /* brand core — headers, price, primary buttons */
+  --blink-500: #f5b800;
+  --blink-600: #d89f00;
+  --blink-700: #a87b00;
+  --blink-800: #6e5000;
+
+  /* Neutrals — cool/neutral greys, never warm, never blue-tinted */
+  --ink-950: #0a0e16;
+  --ink-900: #151a24;
+  --ink-800: #242a36;
+  --ink-700: #3a4150;
+  --ink-600: #5a6372;
+  --ink-500: #818a99;
+  --ink-400: #a8b0bc;
+  --ink-300: #cbd1da;
+  --ink-200: #e4e7ec;
+  --ink-100: #eff1f5;
+  --ink-50: #f8fafd;
+
+  /* Semantic hues — used sparingly */
+  --green-500: #159b62;
+  --green-100: #e1f5ec;
+  --red-500: #e23b33;
+  --red-100: #fde7e5;
+  --blue-500: #2563eb;
+  --blue-100: #e3ebfd;
+
+  /* ——— Semantic aliases ——— */
+  --bg-page: var(--ink-50);
+  --bg-brand: var(--blink-400);
+  --bg-inverse: var(--ink-950);
+  --surface-card: #ffffff;
+  --surface-sunken: var(--ink-100);
+  --surface-thumb: var(--ink-100);
+  --surface-accent: var(--blink-50);
+  --surface-overlay: rgba(10, 14, 22, 0.55);
+
+  --text-strong: var(--ink-950);
+  --text-body: var(--ink-800);
+  --text-muted: var(--ink-600);
+  --text-subtle: var(--ink-500);
+  --text-inverse: #ffffff;
+  --text-on-brand: var(--ink-950);
+  --text-price: var(--blink-500);
+  --text-link: var(--ink-950);
+
+  --border-subtle: var(--ink-200);
+  --border-default: var(--ink-300);
+  --border-strong: var(--ink-950);
+  --border-brand: var(--blink-400);
+
+  --accent: var(--blink-400);
+  --accent-hover: var(--blink-500);
+  --accent-press: var(--blink-600);
+  --accent-soft: var(--blink-100);
+  --focus-ring: var(--ink-950);
+
+  --success: var(--green-500);
+  --success-soft: var(--green-100);
+  --danger: var(--red-500);
+  --danger-soft: var(--red-100);
+  --info: var(--blue-500);
+  --info-soft: var(--blue-100);
+  --warning: var(--blink-500);
+  --warning-soft: var(--blink-100);
+
+  /* Layout */
+  --container-max: 1240px;
+  --web-nav-h: 76px;
+  --grid-gutter: 20px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.2, 0.8, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 160ms;
+  --dur-base: 240ms;
+  --t-hover: color var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
+  --t-transform: transform var(--dur-fast) var(--ease-out);
+  --press-scale: 0.96;
+  --lift-hover: -2px;
+
+  /* Typography scale */
+  --fs-display-1: clamp(42px, 5.2vw, 76px);
+  --lh-display-1: 0.98;
+  --tr-display-1: -0.03em;
+  --fs-display-2: clamp(34px, 3.9vw, 56px);
+  --lh-display-2: 1.02;
+  --tr-display-2: -0.025em;
+  --fs-display-3: clamp(28px, 2.8vw, 40px);
+  --lh-display-3: 1.08;
+  --tr-display-3: -0.02em;
+  --fs-h1: 28px;
+  --fs-h2: 22px;
+  --fs-h3: 18px;
+  --fs-h4: 16px;
+  --fs-body-lg: 18px;
+  --fs-body: 15px;
+  --fs-body-sm: 13px;
+  --fs-caption: 11px;
+  --fs-label: 12px;
+  --tr-label: 0.06em;
+  --fs-price: 17px;
+  --fs-price-lg: 24px;
+}
+
+/* Ink sections: black pills, bottom-nav circle, dark web bands. */
+.blink-dark {
+  --bg-page: var(--ink-950);
+  --surface-card: var(--ink-900);
+  --surface-sunken: var(--ink-800);
+  --surface-thumb: var(--ink-800);
+  --surface-accent: rgba(255, 197, 11, 0.14);
+  --text-strong: #ffffff;
+  --text-body: var(--ink-200);
+  --text-muted: var(--ink-400);
+  --text-subtle: var(--ink-500);
+  --text-link: var(--blink-400);
+  --border-subtle: var(--ink-800);
+  --border-default: var(--ink-700);
+  --border-strong: #ffffff;
+  --focus-ring: var(--blink-400);
+  color-scheme: dark;
+}
+
+/* Yellow sections: the app header, the web hero band. */
+.blink-brand {
+  --bg-page: var(--blink-400);
+  --surface-card: #ffffff;
+  --surface-sunken: rgba(255, 255, 255, 0.28);
+  --text-strong: var(--ink-950);
+  --text-body: var(--ink-900);
+  --text-muted: var(--blink-800);
+  --text-subtle: var(--blink-700);
+  --border-subtle: rgba(10, 14, 22, 0.1);
+  --border-default: rgba(10, 14, 22, 0.18);
+  --focus-ring: var(--ink-950);
+}
+
+/* ——— Layout + type utilities ——— */
+.blink-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+.blink-display-1 {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: var(--fs-display-1);
+  line-height: var(--lh-display-1);
+  letter-spacing: var(--tr-display-1);
+  color: var(--text-strong);
+}
+.blink-display-2 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--fs-display-2);
+  line-height: var(--lh-display-2);
+  letter-spacing: var(--tr-display-2);
+  color: var(--text-strong);
+}
+.blink-display-3 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--fs-display-3);
+  line-height: var(--lh-display-3);
+  letter-spacing: var(--tr-display-3);
+  color: var(--text-strong);
+}
+.blink-eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--fs-label);
+  letter-spacing: var(--tr-label);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.blink-price {
+  font-weight: 700;
+  font-size: var(--fs-price);
+  color: var(--text-price);
+}
+.blink-tagline {
+  font-family: var(--font-sans);
+  font-style: italic;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+.blink-thumb {
+  background: var(--surface-thumb);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.blink-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+@keyframes blink-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes blink-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes blink-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes blink-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
