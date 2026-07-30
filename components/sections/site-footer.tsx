@@ -3,10 +3,37 @@ import { DeliveryBadge } from "@/components/blink/delivery-badge";
 import { StoreBadge } from "@/components/blink/store-badge";
 import { Icon, type IconName } from "@/components/blink/icon";
 
-const FOOTER_COLS: [string, string[]][] = [
-  ["Shop", ["Groceries", "Fresh produce", "Pharmacy", "Household", "Baby", "Snacks"]],
-  ["Blink", ["About us", "Careers", "Hubs in Nairobi", "Request a hub", "Press"]],
-  ["Support", ["Help centre", "Delivery zones", "Refunds", "Contact us"]],
+const FOOTER_COLS: [string, [string, string][]][] = [
+  [
+    "Shop",
+    [
+      ["Groceries", "#categories"],
+      ["Fresh produce", "#categories"],
+      ["Pharmacy", "#pharmacy"],
+      ["Household", "#categories"],
+      ["Baby", "#categories"],
+      ["Snacks", "#categories"],
+    ],
+  ],
+  [
+    "Blink",
+    [
+      ["About us", "#about"],
+      ["Careers", "#careers"],
+      ["Hubs in Nairobi", "#launch"],
+      ["Request a hub", "#launch"],
+      ["Press", "#top"],
+    ],
+  ],
+  [
+    "Support",
+    [
+      ["Help centre", "#faq"],
+      ["Delivery zones", "#launch"],
+      ["Refunds", "#top"],
+      ["Contact us", "#faq"],
+    ],
+  ],
 ];
 
 const SOCIALS: IconName[] = ["instagram", "facebook", "twitter", "linkedin"];
@@ -43,9 +70,9 @@ export function SiteFooter() {
                 {title}
               </div>
               <div className="mt-3.5 flex flex-col gap-2.5">
-                {items.map((i) => (
-                  <a key={i} href="#top" className="border-0 text-[13px] text-ink-300">
-                    {i}
+                {items.map(([label, href]) => (
+                  <a key={label} href={href} className="border-0 text-[13px] text-ink-300">
+                    {label}
                   </a>
                 ))}
               </div>

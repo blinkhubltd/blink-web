@@ -11,6 +11,7 @@ const NAV_LINKS = [
   { label: "Shop", href: "#categories" },
   { label: "Pharmacy", href: "#pharmacy" },
   { label: "How it works", href: "#how" },
+  { label: "About", href: "#about" },
   { label: "Where we deliver", href: "#launch" },
   { label: "Careers", href: "#careers" },
   { label: "Help", href: "#faq" },
