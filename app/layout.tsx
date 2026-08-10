@@ -16,7 +16,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Blink — groceries in 10 minutes",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://blink.co.ke"
+  ),
+  title: {
+    default: "Blink — groceries in 10 minutes",
+    template: "%s — Blink",
+  },
   description:
     "Groceries, fresh produce, household basics and pharmacy items delivered across Nairobi in 10 minutes. Faster than you.",
 };
