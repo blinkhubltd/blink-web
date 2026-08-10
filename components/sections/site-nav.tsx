@@ -1,31 +1,33 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Logo } from "@/components/blink/logo";
 import { DeliveryBadge } from "@/components/blink/delivery-badge";
 import { Button } from "@/components/ui/button";
 import { useStoreCta } from "./store-context";
 
+// Root-relative so the nav also works from the standalone legal pages.
 const NAV_LINKS = [
-  { label: "Shop", href: "#categories" },
-  { label: "Pharmacy", href: "#pharmacy" },
-  { label: "How it works", href: "#how" },
-  { label: "About", href: "#about" },
-  { label: "Where we deliver", href: "#launch" },
-  { label: "Careers", href: "#careers" },
-  { label: "Help", href: "#faq" },
+  { label: "Shop", href: "/#categories" },
+  { label: "Pharmacy", href: "/#pharmacy" },
+  { label: "How it works", href: "/#how" },
+  { label: "About", href: "/#about" },
+  { label: "Where we deliver", href: "/#launch" },
+  { label: "Careers", href: "/#careers" },
+  { label: "Help", href: "/#faq" },
 ];
 
 function NavLink({ label, href }: { label: string; href: string }) {
   return (
-    <a
+    <Link
       href={href}
       className="group relative border-0 pb-[3px] text-[15px] font-medium whitespace-nowrap text-[var(--text-body)] transition-colors hover:text-ink-950"
     >
       {label}
       <i className="absolute bottom-0 left-0 h-0.5 w-0 rounded bg-blink-400 transition-[width] duration-160 ease-out group-hover:w-full" />
-    </a>
+    </Link>
   );
 }
 
@@ -51,9 +53,9 @@ export function SiteNav() {
         className="blink-container flex items-center gap-5 lg:gap-8"
         style={{ height: "var(--web-nav-h)" }}
       >
-        <a href="#top" className="flex flex-none border-0">
+        <Link href="/" className="flex flex-none border-0">
           <Logo size={28} className="lg:h-[30px]" />
-        </a>
+        </Link>
         <nav className="hidden min-w-0 flex-1 items-center gap-5 overflow-hidden lg:flex lg:gap-6">
           {NAV_LINKS.map((l) => (
             <NavLink key={l.label} {...l} />

@@ -1,39 +1,47 @@
+import Link from "next/link";
 import { Logo } from "@/components/blink/logo";
 import { DeliveryBadge } from "@/components/blink/delivery-badge";
 import { StoreBadge } from "@/components/blink/store-badge";
 import { Icon, type IconName } from "@/components/blink/icon";
 
+// Root-relative so the footer also works from the standalone legal pages.
 const FOOTER_COLS: [string, [string, string][]][] = [
   [
     "Shop",
     [
-      ["Groceries", "#categories"],
-      ["Fresh produce", "#categories"],
-      ["Pharmacy", "#pharmacy"],
-      ["Household", "#categories"],
-      ["Baby", "#categories"],
-      ["Snacks", "#categories"],
+      ["Groceries", "/#categories"],
+      ["Fresh produce", "/#categories"],
+      ["Pharmacy", "/#pharmacy"],
+      ["Household", "/#categories"],
+      ["Baby", "/#categories"],
+      ["Snacks", "/#categories"],
     ],
   ],
   [
     "Blink",
     [
-      ["About us", "#about"],
-      ["Careers", "#careers"],
-      ["Hubs in Nairobi", "#launch"],
-      ["Request a hub", "#launch"],
-      ["Press", "#top"],
+      ["About us", "/#about"],
+      ["Careers", "/#careers"],
+      ["Hubs in Nairobi", "/#launch"],
+      ["Request a hub", "/#launch"],
+      ["Press", "/#top"],
     ],
   ],
   [
     "Support",
     [
-      ["Help centre", "#faq"],
-      ["Delivery zones", "#launch"],
-      ["Refunds", "#top"],
-      ["Contact us", "#faq"],
+      ["Help centre", "/#faq"],
+      ["Delivery zones", "/#launch"],
+      ["Refunds", "/terms#section-4"],
+      ["Contact us", "/#faq"],
     ],
   ],
+];
+
+const LEGAL_LINKS: [string, string][] = [
+  ["Privacy Policy", "/privacy-policy"],
+  ["Terms & Conditions", "/terms"],
+  ["EULA", "/eula"],
 ];
 
 const SOCIALS: IconName[] = ["instagram", "facebook", "twitter", "linkedin"];
@@ -58,9 +66,14 @@ export function SiteFooter() {
             </div>
             <div className="mt-[22px] flex gap-3.5">
               {SOCIALS.map((s) => (
-                <a key={s} href="#top" aria-label={s} className="border-0 text-ink-500">
+                <Link
+                  key={s}
+                  href="/#top"
+                  aria-label={s}
+                  className="border-0 text-ink-500"
+                >
                   <Icon name={s} size={18} />
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -71,20 +84,26 @@ export function SiteFooter() {
               </div>
               <div className="mt-3.5 flex flex-col gap-2.5">
                 {items.map(([label, href]) => (
-                  <a key={label} href={href} className="border-0 text-[13px] text-ink-300">
+                  <Link
+                    key={label}
+                    href={href}
+                    className="border-0 text-[13px] text-ink-300"
+                  >
                     {label}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
           ))}
         </div>
         <div className="mt-10 flex flex-wrap justify-between gap-4 border-t border-ink-800 pt-6 text-[11px] text-ink-500">
-          <span>© 2026 Blink Kenya Ltd · Nairobi</span>
-          <span className="flex gap-4.5">
-            <a href="#top" className="border-0 text-ink-500">Privacy</a>
-            <a href="#top" className="border-0 text-ink-500">Terms</a>
-            <a href="#top" className="border-0 text-ink-500">VAT &amp; pricing</a>
+          <span>© 2026 Blink Hub Ltd · Nairobi</span>
+          <span className="flex flex-wrap gap-4.5">
+            {LEGAL_LINKS.map(([label, href]) => (
+              <Link key={href} href={href} className="border-0 text-ink-500">
+                {label}
+              </Link>
+            ))}
           </span>
         </div>
       </div>

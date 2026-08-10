@@ -391,6 +391,293 @@
   mix-blend-mode: multiply;
 }
 
+/* ============================================================
+   Legal documents — privacy policy, terms, EULA.
+   Long-form reading typography. Scoped under `.legal-doc` rather
+   than declared as Tailwind utilities, matching how `.blink-container`
+   and `.blink-display-*` are defined above.
+   ============================================================ */
+.legal-doc {
+  /* ~66 characters of prose — `ch` is the digit advance, which runs wider
+     than average lowercase, so this is narrower than it looks. */
+  --legal-measure: 62ch;
+  --legal-gap: 1.1rem;
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--text-body);
+  text-wrap: pretty;
+}
+
+.legal-doc :is(p, li, td, th) {
+  max-width: var(--legal-measure);
+}
+
+/* ——— Sections ——— */
+.legal-section + .legal-section {
+  margin-top: 3rem;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 3rem;
+}
+.legal-section {
+  scroll-margin-top: calc(var(--web-nav-h) + 24px);
+}
+
+.legal-h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--text-strong);
+  text-wrap: balance;
+}
+.legal-h2 .legal-num {
+  flex: none;
+  align-self: flex-start;
+  margin-top: 0.2em;
+  min-width: 1.85rem;
+  border-radius: 6px;
+  background: var(--blink-400);
+  padding: 0.15rem 0.45rem;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.5;
+  color: var(--ink-950);
+}
+.legal-anchor {
+  flex: none;
+  margin-left: -0.25rem;
+  border: 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-subtle);
+  opacity: 0;
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+.legal-h2:hover .legal-anchor,
+.legal-anchor:focus-visible {
+  opacity: 1;
+}
+
+.legal-h3 {
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+  font-size: var(--fs-h4);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text-strong);
+}
+.legal-h3:first-child {
+  margin-top: 0;
+}
+
+/* ——— Blocks ——— */
+.legal-block + .legal-block {
+  margin-top: var(--legal-gap);
+}
+.legal-block + .legal-list,
+.legal-block + .legal-table-wrap {
+  margin-top: 0.75rem;
+}
+
+/* Numbered clause — true hanging indent, so wrapped lines align. */
+.legal-clause {
+  display: grid;
+  grid-template-columns: 3.25rem 1fr;
+}
+.legal-clause > .legal-num {
+  padding-top: 0.05em;
+  font-size: 14px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-subtle);
+}
+.legal-clause > p {
+  margin: 0;
+}
+
+.legal-list {
+  margin-left: 3.25rem;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.legal-list > li::marker {
+  color: var(--text-subtle);
+  font-size: 0.9em;
+}
+.legal-list-bullet {
+  list-style-type: disc;
+}
+.legal-list-roman {
+  list-style-type: lower-roman;
+}
+.legal-list-alpha {
+  list-style-type: lower-alpha;
+}
+.legal-list-decimal {
+  list-style-type: decimal;
+}
+
+.legal-defs {
+  margin-top: var(--legal-gap);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.legal-defs dt {
+  font-weight: 600;
+  color: var(--text-strong);
+}
+.legal-defs dd {
+  margin: 0;
+  max-width: var(--legal-measure);
+}
+
+.legal-callout {
+  border-left: 3px solid var(--blink-400);
+  border-radius: 0 12px 12px 0;
+  background: var(--surface-accent);
+  padding: 1rem 1.25rem;
+  font-size: 16px;
+}
+.legal-callout strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--text-strong);
+}
+
+/* ——— Tables ——— */
+.legal-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+}
+.legal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.legal-table th,
+.legal-table td {
+  padding: 0.7rem 1rem;
+  text-align: left;
+  vertical-align: top;
+  max-width: 42ch;
+  min-width: 12ch;
+  /* Some cells carry hard line breaks (addresses, rights lists). */
+  white-space: pre-line;
+}
+.legal-table thead th {
+  background: var(--surface-sunken);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: var(--tr-label);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.legal-table tbody tr + tr {
+  border-top: 1px solid var(--border-subtle);
+}
+.legal-table tbody tr:nth-child(even) {
+  background: color-mix(in srgb, var(--surface-sunken) 45%, transparent);
+}
+
+/* ——— Links ——— */
+.legal-doc a:not(.legal-anchor, .legal-plain) {
+  color: var(--text-link);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--blink-400);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+.legal-doc a:not(.legal-anchor, .legal-plain):hover {
+  text-decoration-color: var(--blink-600);
+}
+
+/* ——— Table of contents ——— */
+.legal-toc-link {
+  display: grid;
+  grid-template-columns: 1.75rem 1fr;
+  gap: 0.25rem;
+  border: 0;
+  border-left: 2px solid transparent;
+  padding: 0.3rem 0 0.3rem 0.7rem;
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: var(--text-muted);
+  transition: var(--t-hover);
+}
+.legal-toc-link:hover {
+  color: var(--text-strong);
+}
+.legal-toc-link[data-active="true"] {
+  border-left-color: var(--blink-400);
+  font-weight: 600;
+  color: var(--text-strong);
+}
+.legal-toc-link > span:first-child {
+  font-variant-numeric: tabular-nums;
+  color: var(--text-subtle);
+}
+
+@media (max-width: 1023px) {
+  .legal-doc {
+    font-size: 16px;
+  }
+  .legal-clause {
+    grid-template-columns: 2.5rem 1fr;
+  }
+  .legal-list {
+    margin-left: 2.5rem;
+  }
+}
+
+/* ——— Print: a clean, filable document ——— */
+@media print {
+  .legal-no-print {
+    display: none !important;
+  }
+  .legal-doc {
+    font-size: 10.5pt;
+    line-height: 1.55;
+    color: #000;
+    --legal-measure: none;
+  }
+  .legal-section {
+    break-inside: avoid;
+  }
+  .legal-section + .legal-section {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+  }
+  .legal-h2 {
+    break-after: avoid;
+  }
+  .legal-h2 .legal-num {
+    background: none;
+    padding: 0;
+    text-align: left;
+  }
+  .legal-doc a:not(.legal-anchor, .legal-plain) {
+    text-decoration: none;
+  }
+  .legal-doc a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    color: #444;
+  }
+}
+
 @keyframes blink-fade-up {
   from {
     opacity: 0;
