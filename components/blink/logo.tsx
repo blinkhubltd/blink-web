@@ -28,7 +28,7 @@ export function Logo({
       width={Math.round(size * RATIO)}
       priority
       className={className}
-      style={{ height: size, width: "auto" }}
+      style={{ height: size, width: Math.round(size * RATIO) }}
     />
   );
 }

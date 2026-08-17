@@ -6,18 +6,18 @@ import { SectionHead } from "./section-head";
 const STEPS: { icon: IconName; title: string; body: string }[] = [
   {
     icon: "smartphone",
-    title: "Order in the app",
-    body: "Pick from thousands of items on the shelves of the hub nearest you. No minimum order.",
+    title: "Choose what you need",
+    body: "Open Blink and shop thousands of products available from your nearest hub.",
   },
   {
     icon: "shopping-basket",
-    title: "A picker packs it",
-    body: "Our picker walks the aisles the second you pay — most baskets are packed in under three minutes.",
+    title: "We pick & pack",
+    body: "Your order is sent directly to the hub, where our team carefully picks and prepares it.",
   },
   {
     icon: "bike",
-    title: "A rider brings it",
-    body: "Riders leave the hub within seconds and cover the last five kilometres fast. Track them to your gate.",
+    title: "We deliver",
+    body: "A Blink rider collects your order and heads straight to you.",
   },
 ];
 
@@ -26,7 +26,12 @@ export function HowItWorks() {
     <section className="border-y border-[var(--border-subtle)] bg-white py-[120px]">
       <div className="blink-container">
         <div className="flex flex-wrap items-end justify-between gap-6">
-          <SectionHead id="how" eyebrow="How it works" title="10 minutes, three steps." />
+          <SectionHead
+            id="how"
+            eyebrow="How it works"
+            title="Order. We pack. We deliver."
+            sub="Three simple steps between you and what you need."
+          />
           <Reveal delay={140}>
             <DeliveryBadge size="lg" />
           </Reveal>
@@ -45,6 +50,14 @@ export function HowItWorks() {
             </div>
           ))}
         </RevealGroup>
+        <Reveal delay={220}>
+          <p className="mt-11 text-[13px] text-[var(--text-subtle)]">
+            Track every step from the app.
+          </p>
+          <p className="mt-1.5 text-[18px] font-semibold text-[var(--text-strong)]">
+            Your order. Your door. In 10 minutes.
+          </p>
+        </Reveal>
       </div>
     </section>
   );

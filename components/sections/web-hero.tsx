@@ -6,8 +6,6 @@ import { Reveal } from "@/components/blink/reveal";
 import { DeliveryBadge } from "@/components/blink/delivery-badge";
 import { StoreBadge } from "@/components/blink/store-badge";
 import { Icon, type IconName } from "@/components/blink/icon";
-import { Button } from "@/components/ui/button";
-import { useStoreCta } from "./store-context";
 
 /** The "10 minutes" plate that counts 1→10 once, on load. */
 function CountUp() {
@@ -74,28 +72,27 @@ function PhoneShot({
   );
 }
 
-/** Yellow hero: the promise, an address hand-off, store badges, floating phones. */
+/** Yellow hero: the promise, store badges, floating phones. */
 export function WebHero() {
-  const [addr, setAddr] = useState("");
-  const openStore = useStoreCta();
-
   return (
     <section id="top" className="blink-brand relative overflow-hidden bg-blink-400">
       <div className="blink-container grid items-center gap-9 py-12 px-7 lg:grid-cols-[1.05fr_.95fr] lg:gap-9">
         <div className="min-w-0 lg:pb-12">
           <Reveal>
-            <span className="blink-tagline text-[15px] text-blink-800">Faster than you</span>
+            <span className="blink-tagline text-[15px] text-blink-800">Faster than U.</span>
           </Reveal>
           <Reveal delay={60}>
             <h1 className="blink-display-1 mt-3 max-w-[16ch] text-ink-950">
-              Groceries at your gate in <CountUp />
+              Everything you need.
+              <br />
+              At your door in <CountUp />.
             </h1>
           </Reveal>
           <Reveal delay={120}>
             <p className="mt-5 max-w-[40ch] text-lg leading-[1.5] text-ink-900">
-              Fresh food, household basics and pharmacy items from the shelf to
-              your door — while the kettle is still boiling. Nairobi, all day,
-              every day.
+              Groceries, fresh food, household essentials and pharmacy
+              products — delivered from your nearest Blink hub straight to
+              your door.
             </p>
           </Reveal>
 
@@ -106,23 +103,8 @@ export function WebHero() {
           </Reveal>
 
           <Reveal delay={180}>
-            <div className="mt-6 flex max-w-[520px] gap-2.5">
-              <span className="flex h-14 flex-1 items-center gap-2.5 rounded-full bg-white px-4 shadow-sm">
-                <Icon name="map-pin" size={19} className="text-blink-500" />
-                <input
-                  value={addr}
-                  onChange={(e) => setAddr(e.target.value)}
-                  placeholder="Enter your delivery address"
-                  className="min-w-0 flex-1 border-0 bg-transparent text-[15px] outline-none"
-                />
-              </span>
-              <Button variant="ink" size="lg" pill iconRight="arrow-right" onClick={openStore}>
-                Start
-              </Button>
-            </div>
-            <p className="mt-3 text-[13px] text-blink-800">
-              Blink orders happen in the app — we&apos;ll take you to the store to
-              download it.
+            <p className="mt-5 blink-tagline text-[15px] text-ink-950">
+              The future of grocery shopping is instant.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <StoreBadge store="ios" />

@@ -13,12 +13,6 @@ import { FormTextarea } from "@/components/blink/form-textarea";
 import { FormCheckbox } from "@/components/blink/form-checkbox";
 import { Button } from "@/components/ui/button";
 
-const LIVE_AREAS = [
-  "Mombasa Road", "South B", "South C", "Westlands", "Kilimani", "Kileleshwa",
-  "Lavington", "Parklands", "Kasarani", "Roysambu", "Lang'ata", "Embakasi",
-];
-const SOON = ["Ruaka", "Syokimau", "Ngong Road", "Thika Road"];
-
 const ADMIN_EMAIL = "blinkhubltd@gmail.com";
 
 type FormState = {
@@ -64,8 +58,8 @@ export function LaunchRequest() {
         const body = await res.json().catch(() => null);
         throw new Error(body?.error ?? "Something went wrong.");
       }
-      toast.success("Request sent", {
-        description: `We've noted ${form.area}. Watch your inbox.`,
+      toast.success("Thanks — your request is in.", {
+        description: "We'll let you know when Blink becomes available in your area.",
       });
       setForm(INITIAL);
     } catch (err) {
@@ -86,58 +80,20 @@ export function LaunchRequest() {
           </Reveal>
           <Reveal delay={60}>
             <h2 className="blink-display-3 mt-3 max-w-[20ch]">
-              Not on the list? Put your area on it.
+              Closer every day.
             </h2>
           </Reveal>
           <Reveal delay={110}>
             <p className="mt-3.5 max-w-[42ch] text-lg text-[var(--text-muted)]">
-              We open a hub where the requests pile up. Tell us where you are
-              and we&apos;ll email you the day a rider can reach your gate in
-              10 minutes.
+              Blink is growing across Nairobi, one neighbourhood at a time.
+              Enter your address to see whether Blink currently delivers to
+              your location.
             </p>
           </Reveal>
 
           <Reveal delay={130}>
             <div className="mt-[22px]">
               <DeliveryBadge />
-            </div>
-          </Reveal>
-
-          <Reveal delay={150}>
-            <div className="mt-[30px]">
-              <span className="text-[11px] font-bold tracking-[.08em] uppercase text-[var(--text-subtle)]">
-                Live now
-              </span>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {LIVE_AREAS.map((a) => (
-                  <span
-                    key={a}
-                    className="inline-flex h-[34px] items-center gap-1.5 rounded-full border border-[var(--border-subtle)] bg-white px-3.5 text-[13px] font-medium text-[var(--text-body)]"
-                  >
-                    <i className="size-[7px] rounded-full bg-success" />
-                    {a}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </Reveal>
-
-          <Reveal delay={190}>
-            <div className="mt-[26px]">
-              <span className="text-[11px] font-bold tracking-[.08em] uppercase text-[var(--text-subtle)]">
-                Opening soon
-              </span>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {SOON.map((a) => (
-                  <span
-                    key={a}
-                    className="inline-flex h-[34px] items-center gap-1.5 rounded-full border border-blink-200 bg-blink-50 px-3.5 text-[13px] font-medium text-blink-800"
-                  >
-                    <Icon name="clock" size={13} />
-                    {a}
-                  </span>
-                ))}
-              </div>
             </div>
           </Reveal>
         </div>
@@ -149,9 +105,11 @@ export function LaunchRequest() {
                 <Icon name="map-pin-plus" size={22} />
               </span>
               <div>
-                <h3 className="text-[22px]">Request a Blink hub</h3>
+                <h3 className="text-[22px]">Bring Blink closer.</h3>
                 <span className="text-[13px] text-[var(--text-muted)]">
-                  Goes straight to the expansion team.
+                  Tell us where you&apos;d like to see Blink next. The more
+                  demand we see in an area, the better we can plan where to
+                  expand.
                 </span>
               </div>
             </div>
@@ -215,7 +173,11 @@ export function LaunchRequest() {
                   ]}
                 />
               </Field>
-              <Field label="Anything else?" className="col-span-2">
+              <Field
+                label="Anything else?"
+                hint="Tell us anything that would help us understand your area."
+                className="col-span-2"
+              >
                 <FormTextarea
                   rows={2}
                   value={form.note}
@@ -229,7 +191,7 @@ export function LaunchRequest() {
               <FormCheckbox
                 checked={form.updates}
                 onChange={(checked) => setForm((f) => ({ ...f, updates: checked }))}
-                label="Email me when Blink opens near me"
+                label="Let me know when Blink launches near me"
                 description="One email, and only about your area."
               />
             </div>
@@ -243,7 +205,7 @@ export function LaunchRequest() {
                 onClick={submitRequest}
                 disabled={submitting}
               >
-                {submitting ? "Sending…" : "Send my request"}
+                {submitting ? "Sending…" : "Request Blink"}
               </Button>
             </div>
             <p className="mt-3 text-center text-[11px] text-[var(--text-subtle)]">

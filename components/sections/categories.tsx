@@ -11,21 +11,24 @@ const CATS = [
     image: "/imagery/cat-essentials.jpg",
     count: 1240,
     description:
-      "Everyday items you need at home, like groceries, cleaning supplies, and personal care products.",
+      "Everyday household, cleaning and personal-care essentials, ready when you need them.",
+    cta: "Shop essentials",
   },
   {
-    title: "Pharmaceuticals",
+    title: "Pharmacy",
     image: "/imagery/cat-pharmaceuticals.jpg",
     count: 340,
     description:
-      "Over-the-counter medicine, first aid and everyday health, picked by a licensed pharmacist.",
+      "Everyday health, wellness, first-aid and over-the-counter essentials.",
+    cta: "Shop pharmacy",
   },
   {
     title: "Groceries",
     image: "/imagery/cat-essentials.jpg",
     count: 2100,
     description:
-      "Fresh produce, bread, dairy, oils and fats, meat and pantry staples.",
+      "Fresh produce, bakery, dairy, meat, pantry staples, snacks, drinks and more.",
+    cta: "Shop groceries",
   },
 ];
 
@@ -37,12 +40,12 @@ export function Categories() {
         <SectionHead
           id="categories"
           eyebrow="Shop"
-          title="Everything a supermarket has. None of the queue."
-          sub="Browse the aisles here, then finish your order in the app."
+          title="The supermarket, minus the trip."
+          sub="Everything you need for home, all in one app — ready to be picked, packed and delivered in minutes."
         />
         <RevealGroup step={90} className="mt-11 grid gap-5 md:grid-cols-3">
           {CATS.map((c) => (
-            <CategoryCard key={c.title} {...c} cta="See what's in stock" onClick={openStore} />
+            <CategoryCard key={c.title} {...c} onClick={openStore} />
           ))}
         </RevealGroup>
       </div>

@@ -8,9 +8,9 @@ import { Button } from "@/components/ui/button";
 import { useStoreCta } from "./store-context";
 
 const FEATURES = [
-  "Licensed pharmacist on every shift",
-  "Prescription items available on request",
-  "Sealed, tamper-evident packing",
+  "Health & Wellness — everyday products for you and your family.",
+  "First Aid — the essentials you want close at hand.",
+  "Personal & Baby Care — everyday care products delivered with the rest of your Blink order.",
 ];
 
 export function Pharmacy() {
@@ -21,12 +21,15 @@ export function Pharmacy() {
         <Reveal direction="right">
           <span className="blink-eyebrow text-blink-400">Pharmacy</span>
           <h2 className="blink-display-3 mt-3 max-w-[20ch] text-white">
-            Painkillers before the pain wins.
+            Everyday health essentials, delivered fast.
           </h2>
-          <p className="mt-4 max-w-[40ch] text-lg text-ink-300">
-            Over-the-counter medicine, first aid, baby care and hygiene —
-            picked by a licensed pharmacist and delivered in the same 10
-            minutes as your bread.
+          <p className="mt-4 max-w-[42ch] text-lg text-ink-300">
+            From pain relief and first aid to baby care, hygiene and everyday
+            wellness products, find the essentials you need without the extra
+            trip.
+          </p>
+          <p className="mt-2 text-[15px] font-semibold text-white">
+            Carefully prepared. Securely packed. Delivered to your door.
           </p>
           <div className="mt-6 flex flex-col gap-3">
             {FEATURES.map((f) => (
@@ -38,7 +41,7 @@ export function Pharmacy() {
           </div>
           <div className="mt-[26px] flex flex-wrap items-center gap-3.5">
             <Button variant="primary" size="lg" icon="download" onClick={openStore}>
-              Get the app
+              Explore pharmacy
             </Button>
             <DeliveryBadge tone="brand" />
           </div>

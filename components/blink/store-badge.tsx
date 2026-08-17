@@ -18,10 +18,10 @@ export function StoreBadge({
   store?: "ios" | "android";
   href?: string;
   tone?: "ink" | "light";
-  size?: "sm" | "md" | "lg";
+  size?: "xs" | "sm" | "md" | "lg";
   className?: string;
 }) {
-  const h = size === "sm" ? 42 : size === "lg" ? 60 : 52;
+  const h = size === "xs" ? 34 : size === "sm" ? 42 : size === "lg" ? 60 : 52;
   const isIOS = store === "ios";
   const src = isIOS ? APPLE(tone === "light" ? "white" : "black") : GOOGLE;
   const fallback =
