@@ -8,7 +8,6 @@ const schema = z.object({
   email: z.string().trim().optional(),
   area: z.string().trim().min(1, "Which estate, road or landmark?"),
   city: z.string().trim().default("Nairobi"),
-  people: z.string().trim().default("1-10"),
   note: z.string().trim().optional(),
   updates: z.boolean().default(true),
 });
@@ -43,7 +42,6 @@ export async function POST(request: Request) {
       `Email: ${form.email || "—"}`,
       `Area: ${form.area}`,
       `City / town: ${form.city}`,
-      `People who'd order nearby: ${form.people}`,
       `Wants updates: ${form.updates ? "yes" : "no"}`,
       "",
       "Note:",

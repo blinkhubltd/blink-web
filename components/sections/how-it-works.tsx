@@ -1,4 +1,5 @@
 import { Reveal, RevealGroup } from "@/components/blink/reveal";
+import { Card } from "@/components/blink/card";
 import { DeliveryBadge } from "@/components/blink/delivery-badge";
 import { Icon, type IconName } from "@/components/blink/icon";
 import { SectionHead } from "./section-head";
@@ -38,16 +39,27 @@ export function HowItWorks() {
         </div>
         <RevealGroup step={100} className="mt-11 grid gap-5 md:grid-cols-3">
           {STEPS.map((s, i) => (
-            <div key={s.title} className="flex flex-col gap-3.5">
-              <span className="flex size-14 items-center justify-center rounded-full bg-blink-400 text-ink-950">
+            <Card
+              key={s.title}
+              padding="lg"
+              interactive
+              className="relative flex flex-col gap-3.5 overflow-hidden"
+            >
+              <span
+                aria-hidden
+                className="pointer-events-none absolute -top-3 -right-1 font-sans text-[76px] leading-none font-black text-ink-100 select-none"
+              >
+                {i + 1}
+              </span>
+              <span className="relative flex size-14 items-center justify-center rounded-full bg-blink-400 text-ink-950">
                 <Icon name={s.icon} size={26} />
               </span>
-              <span className="text-[11px] font-bold tracking-[.08em] text-[var(--text-subtle)]">
+              <span className="relative text-[11px] font-bold tracking-[.08em] text-[var(--text-subtle)]">
                 STEP {i + 1}
               </span>
-              <h3 className="text-[22px]">{s.title}</h3>
-              <p className="max-w-[34ch] text-[15px] text-[var(--text-muted)]">{s.body}</p>
-            </div>
+              <h3 className="relative text-[22px]">{s.title}</h3>
+              <p className="relative max-w-[34ch] text-[15px] text-[var(--text-muted)]">{s.body}</p>
+            </Card>
           ))}
         </RevealGroup>
         <Reveal delay={220}>
