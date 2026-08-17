@@ -21,13 +21,12 @@ type FormState = {
   email: string;
   area: string;
   city: string;
-  people: string;
   note: string;
   updates: boolean;
 };
 
 const INITIAL: FormState = {
-  name: "", phone: "", email: "", area: "", city: "Nairobi", people: "1-10", note: "", updates: true,
+  name: "", phone: "", email: "", area: "", city: "Nairobi", note: "", updates: true,
 };
 
 /** "Bring Blink to my area" — collects a request and emails the expansion team via Resend. */
@@ -155,22 +154,11 @@ export function LaunchRequest() {
                   invalid={!!errors.area}
                 />
               </Field>
-              <Field label="City or town">
+              <Field label="City or town" className="col-span-2">
                 <FormSelect
                   value={form.city}
                   onChange={(e) => set("city")(e.target.value)}
                   options={["Nairobi", "Mombasa", "Kisumu", "Nakuru", "Eldoret", "Thika", "Other"]}
-                />
-              </Field>
-              <Field label="Neighbours who'd order">
-                <FormSelect
-                  value={form.people}
-                  onChange={(e) => set("people")(e.target.value)}
-                  options={[
-                    { value: "1-10", label: "Just my household" },
-                    { value: "10-50", label: "10–50 nearby" },
-                    { value: "50+", label: "A whole estate" },
-                  ]}
                 />
               </Field>
               <Field
