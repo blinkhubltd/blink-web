@@ -3,7 +3,6 @@
 import { StoreCtaProvider } from "./store-context";
 import { SiteNav } from "./site-nav";
 import { WebHero } from "./web-hero";
-import { ProofBand } from "./proof-band";
 import { ShelfTicker } from "./shelf-ticker";
 import { Categories } from "./categories";
 import { HowItWorks } from "./how-it-works";
@@ -25,7 +24,6 @@ export function SiteShell() {
     <StoreCtaProvider>
       <SiteNav />
       <WebHero />
-      <ProofBand />
       <ShelfTicker />
       <Categories />
       <HowItWorks />

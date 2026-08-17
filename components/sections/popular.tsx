@@ -33,17 +33,21 @@ const POPULAR = [
   { name: "Supa Loaf", description: "White bread", price: "70.00", unit: "400 g" },
 ];
 
-const FILTERS = ["Oils and Fats", "Bread and Bakery", "Fresh produce", "Baby", "Pain relief"];
+const FILTERS = ["Oils & Fats", "Bread & Bakery", "Fresh Produce", "Baby Care", "Health & Wellness"];
 
 export function Popular() {
-  const [filter, setFilter] = useState("Oils and Fats");
+  const [filter, setFilter] = useState("Oils & Fats");
   const openStore = useStoreCta();
 
   return (
     <section className="border-y border-[var(--border-subtle)] bg-white py-20">
       <div className="blink-container">
         <div className="flex flex-wrap items-end justify-between gap-6">
-          <SectionHead eyebrow="Popular right now" title="What Nairobi is ordering today." />
+          <SectionHead
+            eyebrow="Popular right now"
+            title="Nairobi's favourites, right now."
+            sub="From breakfast staples to last-minute essentials, see what customers are adding to their Blink baskets."
+          />
           <Reveal delay={140}>
             <Button variant="ink" iconRight="arrow-right" onClick={openStore}>
               Shop in the app
@@ -65,7 +69,8 @@ export function Popular() {
           ))}
         </RevealGroup>
         <p className="mt-[18px] text-[13px] text-[var(--text-subtle)]">
-          Prices shown for Nairobi and updated daily. Adding to a basket happens in the app.
+          Prices and availability may vary by location. Open Blink to see
+          what&apos;s available from your nearest hub.
         </p>
       </div>
     </section>

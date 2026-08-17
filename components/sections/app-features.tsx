@@ -9,25 +9,27 @@ import { useStoreCta } from "./store-context";
 
 const FEATURES = [
   {
-    eyebrow: "In the app",
-    title: "The whole shop, two taps deep.",
-    body: "Departments across the top, refine below, and a basket that keeps the running total in front of you. Prices are the shelf prices — no delivery mark-up hidden in the products.",
+    eyebrow: "The Blink app",
+    title: "A smarter way to shop, a faster way to live.",
+    body: "No endless scrolling. No complicated checkout. Blink is designed to help you find what you need and place your order fast.",
     bullets: [
-      "Search by product or brand",
-      "Substitutions you approve before packing",
-      "Reorder your last basket in one tap",
+      "Find it fast — search instantly by product, category or brand.",
+      "Smart substitutions — review alternatives when something you ordered is unavailable.",
+      "Reorder in seconds — bring back your regulars without rebuilding your basket.",
+      "Live order tracking — follow your order from the hub to your door.",
     ],
     shot: "/imagery/app-browse.png",
     flip: false,
   },
   {
     eyebrow: "Checkout",
-    title: "Pay how Nairobi pays.",
-    body: "M-Pesa prompt straight to your phone, card if you prefer, or pay the rider on delivery. VAT is broken out at 16% so you can see exactly what you're paying for.",
+    title: "From checkout to your doorstep, fast.",
+    body: "Fast, secure checkout with clear pricing before you place your order.",
     bullets: [
-      "M-Pesa, card, or cash on delivery",
-      "VAT shown as its own line",
-      "Delivery instructions saved for next time",
+      "M-Pesa — pay directly from your phone.",
+      "Card — quick and secure card payments.",
+      "Clear pricing — see product prices, delivery charges and applicable taxes before confirming your order.",
+      "Saved details — save your address and delivery instructions for an even faster checkout next time.",
     ],
     shot: "/imagery/app-checkout.png",
     flip: true,

@@ -19,6 +19,12 @@ import { Button } from "@/components/ui/button";
 
 const CAREERS_EMAIL = "blinkhubltd@gmail.com";
 
+/** The role toggle and the position-description panel are hidden for now —
+ * users pick a role from the apply form's select instead. Flip these back
+ * on to restore both; the data they read from (ROLES) stays up to date. */
+const SHOW_ROLE_TOGGLE = false;
+const SHOW_ROLE_DETAILS = false;
+
 const ROLES: {
   id: string;
   label: string;
@@ -31,20 +37,20 @@ const ROLES: {
 }[] = [
   {
     id: "riders", label: "Riders", icon: "bike", openings: 14,
-    headline: "Ride the last five kilometres.",
-    blurb: "You ride a Blink-owned bike, collecting from the hub and getting orders to the gate. Short hops inside one neighbourhood — no cross-town runs.",
+    headline: "Your city. Your hub. Your next delivery.",
+    blurb: "Blink riders collect orders from neighbourhood hubs and deliver them to customers nearby. Shorter routes. Local deliveries. A team behind you.",
     facts: [["Earnings", "Salary plus commission"], ["Shifts", "Flexible options available"], ["You need", "Licence, smartphone, 18+"]],
     perks: [
-      ["bike", "Bike provided", "Ride a Blink-owned bike — no need to bring your own."],
-      ["wallet", "Salary plus commission", "A steady salary, with commission on top of your deliveries."],
-      ["graduation-cap", "Training included", "We get you road-ready before your first shift."],
-      ["shield-check", "Looked after on shift", "Full details on cover and benefits are shared when you apply."],
+      ["bike", "Blink bike provided", "Where applicable, you'll ride a Blink-provided delivery bike."],
+      ["wallet", "Competitive earnings", "Clear earning structures based on your role."],
+      ["graduation-cap", "Training", "We'll prepare you before your first delivery."],
+      ["map-pin", "Local routes", "Deliver primarily within the area served by your assigned hub."],
     ],
   },
   {
     id: "pickers", label: "Pickers", icon: "shopping-basket", openings: 6,
-    headline: "Own the shelves inside the hub.",
-    blurb: "Read the order, walk the aisle, pack it right, hand it to the rider. Most baskets go out in under three minutes — accuracy matters as much as speed.",
+    headline: "Every fast delivery starts with you.",
+    blurb: "Blink pickers are responsible for getting every order ready quickly, carefully and accurately. Find the right products. Check every item. Pack every order. Get it ready for the rider.",
     facts: [["Earnings", "Salary plus accuracy bonus"], ["Shifts", "Full-time, structured shifts"], ["You need", "KCSE, sharp eyes, 18+"]],
     perks: [
       ["thermometer-snowflake", "Indoor work", "You're inside the hub — out of the traffic and the rain."],
@@ -54,9 +60,9 @@ const ROLES: {
     ],
   },
   {
-    id: "hub", label: "Hub leads", icon: "store", openings: 2,
-    headline: "Run the clock for one neighbourhood.",
-    blurb: "Stock, staffing and the 10-minute promise for a single hub. You decide what's on the shelf and who's on shift.",
+    id: "hub", label: "Hub team", icon: "store", openings: 2,
+    headline: "Keep Blink moving.",
+    blurb: "Our hub teams keep products stocked, orders flowing and every part of the operation running smoothly. If you're organised, dependable and ready to work in a fast-moving environment, we'd like to hear from you.",
     facts: [["Earnings", "Salary plus performance bonus"], ["Shifts", "Full-time"], ["You need", "2 yrs retail or logistics"]],
     perks: [
       ["chart-no-axes-column", "Real ownership", "Your hub's numbers are yours to move."],
@@ -68,9 +74,9 @@ const ROLES: {
 ];
 
 const JOIN_STEPS: [string, string][] = [
-  ["Fill the form", "Two minutes. No CV needed for rider and picker roles."],
-  ["Come to the hub", "A short chat and a walk-through. Bring your ID and licence."],
-  ["Start earning", "Kit and training on day one. Most people start the same week."],
+  ["Apply", "Tell us who you are and which role you're interested in."],
+  ["Meet us", "Shortlisted applicants will be contacted for the next step."],
+  ["Get started", "Complete the required onboarding and training, then join the team."],
 ];
 
 const CREW = [
@@ -145,8 +151,8 @@ export function Careers() {
         const resBody = await res.json().catch(() => null);
         throw new Error(resBody?.error ?? "Something went wrong.");
       }
-      toast.success("Application sent", {
-        description: `${r.label} — we'll SMS you within two working days.`,
+      toast.success("Application received.", {
+        description: "Thank you for your interest in Blink. We'll contact shortlisted applicants with the next steps.",
       });
       setForm(INITIAL);
       setCv(null);
@@ -166,45 +172,52 @@ export function Careers() {
           <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_.9fr]">
             <div>
               <Reveal>
-                <span className="blink-eyebrow text-blink-400">Work with Blink</span>
+                <span className="blink-eyebrow text-blink-400">Careers</span>
               </Reveal>
               <Reveal delay={60}>
-                <h2 className="blink-display-2 mt-3 max-w-[16ch] text-white">
-                  10 minutes takes <span className="text-blink-400">a team</span>.
+                <h2 className="blink-display-2 mt-3 max-w-[18ch] text-white">
+                  Move fast. Build something people use every day.
                 </h2>
               </Reveal>
               <Reveal delay={110}>
                 <p className="mt-[18px] max-w-[44ch] text-lg text-ink-300">
-                  Riders, pickers and hub leads across Nairobi. Apply in two
-                  minutes — no CV needed for rider and picker roles, and most
-                  people start the same week.
+                  Great delivery takes great people. Join the riders,
+                  pickers, hub teams and operations teams helping Blink build
+                  a faster way to shop across Nairobi.
                 </p>
               </Reveal>
               <Reveal delay={160}>
-                <div className="mt-[22px]">
+                <div className="mt-[22px] flex flex-wrap items-center gap-3.5">
                   <DeliveryBadge tone="brand" />
+                  <a href="#apply-form">
+                    <Button variant="ink" iconRight="arrow-right">
+                      View open roles
+                    </Button>
+                  </a>
                 </div>
               </Reveal>
-              <Reveal delay={190}>
-                <div className="mt-[22px] flex flex-wrap gap-2.5">
-                  {ROLES.map((x) => (
-                    <button
-                      key={x.id}
-                      onClick={() => setRole(x.id)}
-                      className={cn(
-                        "inline-flex h-11 items-center gap-2 rounded-full border px-[18px] text-[15px] font-semibold transition-colors duration-150 ease-out",
-                        role === x.id
-                          ? "border-blink-400 bg-blink-400 text-ink-950"
-                          : "border-ink-700 bg-transparent text-ink-200"
-                      )}
-                    >
-                      <Icon name={x.icon} size={17} />
-                      {x.label}
-                      <span className="text-[11px] font-bold opacity-70">{x.openings}</span>
-                    </button>
-                  ))}
-                </div>
-              </Reveal>
+              {SHOW_ROLE_TOGGLE && (
+                <Reveal delay={190}>
+                  <div className="mt-[22px] flex flex-wrap gap-2.5">
+                    {ROLES.map((x) => (
+                      <button
+                        key={x.id}
+                        onClick={() => setRole(x.id)}
+                        className={cn(
+                          "inline-flex h-11 items-center gap-2 rounded-full border px-[18px] text-[15px] font-semibold transition-colors duration-150 ease-out",
+                          role === x.id
+                            ? "border-blink-400 bg-blink-400 text-ink-950"
+                            : "border-ink-700 bg-transparent text-ink-200"
+                        )}
+                      >
+                        <Icon name={x.icon} size={17} />
+                        {x.label}
+                        <span className="text-[11px] font-bold opacity-70">{x.openings}</span>
+                      </button>
+                    ))}
+                  </div>
+                </Reveal>
+              )}
             </div>
             <Reveal delay={140}>
               <div className="grid grid-cols-2 gap-3">
@@ -232,58 +245,60 @@ export function Careers() {
         items={["Riders wanted", "Pickers wanted", "Hub leads wanted", "Salary plus commission", "Bike provided", "Paid training", "Start this week"]}
       />
 
-      <section className="bg-white py-20">
-        <div className="blink-container">
-          <div className="grid items-start gap-10 lg:grid-cols-2">
-            <Reveal key={r.id + "-copy"}>
-              <div className="flex items-center gap-3.5">
-                <span className="flex size-[52px] flex-none items-center justify-center rounded-full bg-blink-400 text-ink-950">
-                  <Icon name={r.icon} size={25} />
-                </span>
-                <div>
-                  <h2 className="text-[28px]">{r.label}</h2>
-                  <span className="text-[13px] text-[var(--text-muted)]">
-                    Nairobi · {r.openings} openings
+      {SHOW_ROLE_DETAILS && (
+        <section className="bg-white py-20">
+          <div className="blink-container">
+            <div className="grid items-start gap-10 lg:grid-cols-2">
+              <Reveal key={r.id + "-copy"}>
+                <div className="flex items-center gap-3.5">
+                  <span className="flex size-[52px] flex-none items-center justify-center rounded-full bg-blink-400 text-ink-950">
+                    <Icon name={r.icon} size={25} />
                   </span>
-                </div>
-                <Badge className="ml-auto bg-blink-400 text-ink-950">Hiring now</Badge>
-              </div>
-              <h3 className="blink-display-3 mt-6 text-[30px]">{r.headline}</h3>
-              <p className="mt-3 max-w-[46ch] text-lg text-[var(--text-muted)]">{r.blurb}</p>
-              <div className="mt-[26px] grid grid-cols-3 gap-4 border-t border-[var(--border-subtle)] pt-[22px]">
-                {r.facts.map(([k, v]) => (
-                  <span key={k} className="flex flex-col gap-1">
-                    <span className="text-[11px] font-bold tracking-[.08em] uppercase text-[var(--text-subtle)]">
-                      {k}
+                  <div>
+                    <h2 className="text-[28px]">{r.label}</h2>
+                    <span className="text-[13px] text-[var(--text-muted)]">
+                      Nairobi · {r.openings} openings
                     </span>
-                    <span className="text-[15px] font-medium text-[var(--text-strong)]">{v}</span>
-                  </span>
-                ))}
-              </div>
-            </Reveal>
+                  </div>
+                  <Badge className="ml-auto bg-blink-400 text-ink-950">Hiring now</Badge>
+                </div>
+                <h3 className="blink-display-3 mt-6 text-[30px]">{r.headline}</h3>
+                <p className="mt-3 max-w-[46ch] text-lg text-[var(--text-muted)]">{r.blurb}</p>
+                <div className="mt-[26px] grid grid-cols-3 gap-4 border-t border-[var(--border-subtle)] pt-[22px]">
+                  {r.facts.map(([k, v]) => (
+                    <span key={k} className="flex flex-col gap-1">
+                      <span className="text-[11px] font-bold tracking-[.08em] uppercase text-[var(--text-subtle)]">
+                        {k}
+                      </span>
+                      <span className="text-[15px] font-medium text-[var(--text-strong)]">{v}</span>
+                    </span>
+                  ))}
+                </div>
+              </Reveal>
 
-            <RevealGroup key={r.id + "-perks"} step={70} className="grid grid-cols-2 gap-3.5">
-              {r.perks.map(([icon, title, body]) => (
-                <Card key={title} padding="md" interactive>
-                  <Icon name={icon} size={21} className="text-ink-950" />
-                  <h4 className="mt-3.5">{title}</h4>
-                  <p className="mt-1.5 text-[13px] text-[var(--text-muted)]">{body}</p>
-                </Card>
-              ))}
-            </RevealGroup>
+              <RevealGroup key={r.id + "-perks"} step={70} className="grid grid-cols-2 gap-3.5">
+                {r.perks.map(([icon, title, body]) => (
+                  <Card key={title} padding="md" interactive>
+                    <Icon name={icon} size={21} className="text-ink-950" />
+                    <h4 className="mt-3.5">{title}</h4>
+                    <p className="mt-1.5 text-[13px] text-[var(--text-muted)]">{body}</p>
+                  </Card>
+                ))}
+              </RevealGroup>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <section className="py-20 pb-[120px]">
         <div className="blink-container">
           <div className="grid items-start gap-10 lg:grid-cols-2">
             <div>
               <Reveal>
-                <span className="blink-eyebrow">How to join</span>
+                <span className="blink-eyebrow">Join Blink</span>
               </Reveal>
               <Reveal delay={60}>
-                <h2 className="blink-display-3 mt-3">Three steps, one week.</h2>
+                <h2 className="blink-display-3 mt-3">Three steps to get started.</h2>
               </Reveal>
               <div className="mt-[30px] flex flex-col">
                 {JOIN_STEPS.map(([title, body], i) => (
@@ -327,13 +342,8 @@ export function Careers() {
             </div>
 
             <Reveal delay={100}>
-              <Card padding="lg" className="shadow-md lg:sticky lg:top-[100px]">
-                <h3 className="text-[22px]">
-                  Apply to be a {r.label.toLowerCase().replace(/s$/, "")}
-                </h3>
-                <p className="mt-1.5 text-[13px] text-[var(--text-muted)]">
-                  We reply by SMS within two working days.
-                </p>
+              <Card padding="lg" id="apply-form" className="shadow-md lg:sticky lg:top-[100px]">
+                <h3 className="text-[22px]">Ready to join us?</h3>
                 <div className="mt-5 flex flex-col gap-3.5">
                   <Field label="Full name" required error={errors.name}>
                     <FormInput
@@ -346,7 +356,7 @@ export function Careers() {
                   <Field
                     label="Phone number"
                     required
-                    hint="An SMS with the next step comes here."
+                    hint="We'll use this number to contact you about your application."
                     error={errors.phone}
                   >
                     <FormInput
@@ -364,20 +374,20 @@ export function Careers() {
                       options={ROLES.map((x) => ({ value: x.id, label: x.label.replace(/s$/, "") }))}
                     />
                   </Field>
-                  <Field label="Nearest hub">
+                  <Field label="Preferred hub">
                     <FormSelect value={form.area} onChange={(e) => set("area")(e.target.value)} options={HUBS} />
                   </Field>
-                  <Field label="Anything we should know?">
+                  <Field label="Tell us about yourself">
                     <FormTextarea
                       rows={2}
                       value={form.note}
                       onChange={(e) => set("note")(e.target.value)}
-                      placeholder="I've ridden delivery routes before and I know South B well."
+                      placeholder="Anything you'd like our recruitment team to know"
                     />
                   </Field>
                   <Field
                     label="CV / résumé"
-                    hint="Optional — PDF or Word, up to 5MB. Not needed for rider and picker roles."
+                    hint="Optional depending on the role — PDF or Word, up to 5MB."
                     error={errors.cv}
                   >
                     <FormFile value={cv} onChange={setCvFile} accept={CV_ACCEPT} invalid={!!errors.cv} />
@@ -385,7 +395,7 @@ export function Careers() {
                   <FormCheckbox
                     checked={form.terms}
                     onChange={(checked) => setForm((f) => ({ ...f, terms: checked }))}
-                    label="I'm happy for Blink to contact me about this role"
+                    label="I agree to be contacted by Blink regarding my application"
                     description={errors.terms}
                   />
                   <Button
@@ -396,7 +406,7 @@ export function Careers() {
                     onClick={apply}
                     disabled={submitting}
                   >
-                    {submitting ? "Sending…" : "Send application"}
+                    {submitting ? "Sending…" : "Submit application"}
                   </Button>
                   <p className="text-center text-[11px] text-[var(--text-subtle)]">
                     Sends to {CAREERS_EMAIL}.

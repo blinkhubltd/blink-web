@@ -7,12 +7,13 @@ import { Icon } from "@/components/blink/icon";
 import { SectionHead } from "./section-head";
 
 const FAQS: [string, string][] = [
-  ["Is it really 10 minutes?", "That is the promise and the average is nine. Our hubs sit inside the neighbourhoods they serve, so a rider is never more than a few minutes from your gate."],
-  ["Where does Blink deliver?", "Nairobi today, hub by hub. Enter your address in the app and it will tell you instantly whether you are inside a delivery zone. If you're not, tell us where you are and we'll count the votes."],
-  ["Can I order on this website?", "No — Blink runs entirely in the app, which is how we keep the timing tight. The website is for browsing, careers and support."],
-  ["How do I pay?", "M-Pesa or card in the app, or pay the rider on delivery. VAT is shown as a separate line at checkout."],
-  ["What if something is out of stock?", "The picker will message you with a substitute before packing it, and you can decline. You are never charged for something you did not get."],
-  ["Is there a delivery fee or a minimum order?", "There is no minimum order. Delivery is a flat fee per order, shown before you pay — never a percentage of your basket."],
+  ["Is Blink really a 10-minute delivery service?", "Blink is designed for ultrafast delivery from neighbourhood hubs located close to the customers they serve. Our target is around 10 minutes, although actual delivery times can vary depending on your location, order size, demand, traffic and other conditions."],
+  ["Where does Blink deliver?", "Blink currently serves selected areas of Nairobi. Enter your delivery address in the Blink app to instantly check whether you're within a Blink delivery zone."],
+  ["Can I order from the website?", "Not yet. Orders are placed through the Blink app, where you can browse products, check live availability, pay and track your delivery."],
+  ["How can I pay?", "Available payment methods are shown at checkout and may include M-PESA and card payments."],
+  ["What if something I ordered is unavailable?", "If an item becomes unavailable, you may be offered a suitable substitute. You won't be charged for products you don't receive."],
+  ["Is there a minimum order?", "Any minimum order requirement and delivery charge will be clearly displayed before you confirm your order."],
+  ["How do I contact Blink?", "Visit the Help Centre or use the support options available through the Blink app."],
 ];
 
 export function Faq() {
@@ -20,7 +21,7 @@ export function Faq() {
   return (
     <section id="faq" className="border-t border-[var(--border-subtle)] bg-white py-[120px]">
       <div className="blink-container grid items-start gap-10 lg:grid-cols-[.8fr_1.2fr]">
-        <SectionHead eyebrow="Questions" title="Good to know." />
+        <SectionHead eyebrow="Help centre" title="Questions? We've got you." />
         <div className="flex flex-col">
           {FAQS.map(([q, a], i) => (
             <Reveal key={q} delay={i * 50} className="border-t border-[var(--border-subtle)]">

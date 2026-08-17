@@ -10,38 +10,41 @@ const FOOTER_COLS: [string, [string, string][]][] = [
     "Shop",
     [
       ["Groceries", "/#categories"],
-      ["Fresh produce", "/#categories"],
+      ["Fresh Produce", "/#categories"],
+      ["Bakery", "/#categories"],
       ["Pharmacy", "/#pharmacy"],
       ["Household", "/#categories"],
-      ["Baby", "/#categories"],
-      ["Snacks", "/#categories"],
+      ["Baby Care", "/#categories"],
+      ["Snacks & Drinks", "/#categories"],
     ],
   ],
   [
     "Blink",
     [
-      ["About us", "/#about"],
+      ["About Us", "/#about"],
       ["Careers", "/#careers"],
-      ["Hubs in Nairobi", "/#launch"],
-      ["Request a hub", "/#launch"],
+      ["Where We Deliver", "/#launch"],
+      ["Request a Hub", "/#launch"],
       ["Press", "/#top"],
     ],
   ],
   [
     "Support",
     [
-      ["Help centre", "/#faq"],
-      ["Delivery zones", "/#launch"],
+      ["Help Centre", "/#faq"],
+      ["Contact Us", "/#faq"],
+      ["Delivery Information", "/#launch"],
       ["Refunds", "/terms#section-4"],
-      ["Contact us", "/#faq"],
     ],
   ],
-];
-
-const LEGAL_LINKS: [string, string][] = [
-  ["Privacy Policy", "/privacy-policy"],
-  ["Terms & Conditions", "/terms"],
-  ["EULA", "/eula"],
+  [
+    "Legal",
+    [
+      ["Privacy Policy", "/privacy-policy"],
+      ["Terms & Conditions", "/terms"],
+      ["EULA", "/eula"],
+    ],
+  ],
 ];
 
 const SOCIALS: IconName[] = ["instagram", "facebook", "twitter", "linkedin"];
@@ -50,19 +53,22 @@ export function SiteFooter() {
   return (
     <footer className="blink-dark bg-ink-950 pt-16 pb-8">
       <div className="blink-container">
-        <div className="grid gap-10 lg:grid-cols-[1.5fr_repeat(3,1fr)]">
+        <div className="grid gap-10 lg:grid-cols-[1.6fr_1fr_1fr_1fr_.9fr]">
           <div>
             <Logo size={28} tone="white" />
-            <p className="mt-4 max-w-[30ch] text-[13px] text-ink-400">
-              Groceries, pharmacy and household basics delivered across
-              Nairobi in 10 minutes.
+            <p className="mt-4 blink-tagline text-[13px] text-blink-400">
+              Faster than U.
+            </p>
+            <p className="mt-2 max-w-[30ch] text-[13px] text-ink-400">
+              Groceries, everyday essentials and pharmacy products delivered
+              fast across Nairobi.
             </p>
             <div className="mt-4">
               <DeliveryBadge size="sm" tone="brand" />
             </div>
-            <div className="mt-5 flex flex-wrap gap-2.5">
-              <StoreBadge store="ios" size="sm" tone="light" />
-              <StoreBadge store="android" size="sm" />
+            <div className="mt-5 flex flex-nowrap items-center gap-2.5">
+              <StoreBadge store="ios" size="xs" tone="light" />
+              <StoreBadge store="android" size="xs" />
             </div>
             <div className="mt-[22px] flex gap-3.5">
               {SOCIALS.map((s) => (
@@ -96,15 +102,8 @@ export function SiteFooter() {
             </div>
           ))}
         </div>
-        <div className="mt-10 flex flex-wrap justify-between gap-4 border-t border-ink-800 pt-6 text-[11px] text-ink-500">
-          <span>© 2026 Blink Hub Ltd · Nairobi</span>
-          <span className="flex flex-wrap gap-4.5">
-            {LEGAL_LINKS.map(([label, href]) => (
-              <Link key={href} href={href} className="border-0 text-ink-500">
-                {label}
-              </Link>
-            ))}
-          </span>
+        <div className="mt-10 border-t border-ink-800 pt-6 text-[11px] text-ink-500">
+          <span>© 2026 Blink Hub Ltd. All rights reserved.</span>
         </div>
       </div>
     </footer>
