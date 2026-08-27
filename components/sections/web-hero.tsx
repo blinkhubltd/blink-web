@@ -82,14 +82,14 @@ export function WebHero() {
             <span className="blink-tagline text-[15px] text-blink-800">Faster than U.</span>
           </Reveal>
           <Reveal delay={60}>
-            <h1 className="blink-display-1 mt-3 max-w-[16ch] text-ink-950">
+            <h1 className="blink-display-1 mt-3 max-w-[20 ch] text-ink-800">
               Everything you need.
               <br />
               At your door in <CountUp />.
             </h1>
           </Reveal>
           <Reveal delay={120}>
-            <p className="mt-5 max-w-[40ch] text-lg leading-[1.5] text-ink-900">
+            <p className="mt-5 max-w-[38ch] text-lg leading-[1.3] text-ink-900">
               Groceries, fresh food, household essentials and pharmacy
               products — delivered from your nearest Blink hub straight to
               your door.
@@ -106,9 +106,9 @@ export function WebHero() {
             <p className="mt-5 blink-tagline text-[15px] text-ink-950">
               The future of grocery shopping is instant.
             </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <StoreBadge store="ios" />
-              <StoreBadge store="android" />
+            <div className="mt-6 flex flex-col items-start gap-3">
+              <StoreBadge store="ios" size="sm" />
+              <StoreBadge store="android" size="sm" />
             </div>
           </Reveal>
         </div>
@@ -117,12 +117,20 @@ export function WebHero() {
           <PhoneShot
             src="/imagery/app-browse.png"
             width={206}
-            style={{ marginBottom: "clamp(20px,4vw,44px)", animation: "blink-float 7s var(--ease-in-out) infinite" }}
+            style={{
+              width: "clamp(110px, 30vw, 206px)",
+              marginBottom: "clamp(20px,4vw,44px)",
+              animation: "blink-float 7s var(--ease-in-out) infinite",
+            }}
           />
           <PhoneShot
             src="/imagery/app-home.png"
             width={264}
-            style={{ animation: "blink-float 7s var(--ease-in-out) infinite", animationDelay: "-3.5s" }}
+            style={{
+              width: "clamp(145px, 38vw, 264px)",
+              animation: "blink-float 7s var(--ease-in-out) infinite",
+              animationDelay: "-3.5s",
+            }}
           />
           <span className="absolute top-[38px] left-1">
             <FloatingChip icon="bike" label="Rider assigned" delay="-1s" />

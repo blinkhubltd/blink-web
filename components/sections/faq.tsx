@@ -11,7 +11,7 @@ const FAQS: [string, string][] = [
   ["Where does Blink deliver?", "Blink currently serves selected areas of Nairobi. Enter your delivery address in the Blink app to instantly check whether you're within a Blink delivery zone."],
   ["Can I order from the website?", "Not yet. Orders are placed through the Blink app, where you can browse products, check live availability, pay and track your delivery."],
   ["How can I pay?", "Available payment methods are shown at checkout and may include M-PESA and card payments."],
-  ["What if something I ordered is unavailable?", "If an item becomes unavailable, you may be offered a suitable substitute. You won't be charged for products you don't receive."],
+  ["What if something I ordered is unavailable?", "If an item you ordered is unavailable, you can choose to receive a refund for the unavailable item or select an available alternative."],
   ["Is there a minimum order?", "Any minimum order requirement and delivery charge will be clearly displayed before you confirm your order."],
   ["How do I contact Blink?", "Visit the Help Centre or use the support options available through the Blink app."],
 ];

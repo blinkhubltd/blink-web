@@ -268,7 +268,7 @@
   --lift-hover: -2px;
 
   /* Typography scale */
-  --fs-display-1: clamp(42px, 5.2vw, 76px);
+  --fs-display-1: clamp(22px, 4.4vw, 8px);
   --lh-display-1: 0.98;
   --tr-display-1: -0.03em;
   --fs-display-2: clamp(34px, 3.9vw, 56px);
