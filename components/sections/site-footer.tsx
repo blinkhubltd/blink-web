@@ -32,7 +32,7 @@ const FOOTER_COLS: [string, [string, string][]][] = [
     "Support",
     [
       ["Help Centre", "/#faq"],
-      ["Contact Us", "/#faq"],
+      ["Contact Us", "/contact"],
       ["Delivery Information", "/#launch"],
       ["Refunds", "/terms#section-4"],
     ],
