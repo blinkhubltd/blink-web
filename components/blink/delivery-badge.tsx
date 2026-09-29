@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 const SIZES = {
   sm: { h: 30, fs: "text-[11px]", px: "px-[11px]", icon: 17 },
   md: { h: 38, fs: "text-[13px]", px: "px-[15px]", icon: 21 },
-  lg: { h: 46, fs: "text-[15px]", px: "px-5", icon: 26 },
+  lg: { h: 52, fs: "text-[17px]", px: "px-6", icon: 30 },
 } as const;
 
 const TONES = {

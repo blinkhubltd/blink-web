@@ -106,7 +106,7 @@ export function WebHero() {
             <p className="mt-5 blink-tagline text-[15px] text-ink-950">
               The future of grocery shopping is instant.
             </p>
-            <div className="mt-6 flex flex-col items-start gap-3">
+            <div className="mt-6 flex flex-row items-start gap-3">
               <StoreBadge store="ios" size="sm" />
               <StoreBadge store="android" size="sm" />
             </div>
