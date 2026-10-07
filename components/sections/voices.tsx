@@ -31,7 +31,7 @@ export function Voices() {
         <RevealGroup step={90} className="mt-11 grid gap-5 md:grid-cols-3">
           {VOICES.map((v) => (
             <Card key={v.n + v.w} padding="lg" interactive>
-              <span aria-hidden className="text-[15px] tracking-[2px] text-blink-400">
+              <span aria-hidden className="text-[16px] tracking-[2px] text-blink-400">
                 ★★★★★
               </span>
               <p className="mt-3.5 text-[18px] leading-[1.45] font-medium text-[var(--text-strong)]">
@@ -41,7 +41,7 @@ export function Voices() {
                 <span className="flex size-[34px] items-center justify-center rounded-full bg-blink-400 text-[12px] font-bold text-ink-950">
                   {v.i}
                 </span>
-                <span className="text-[13px]">
+                <span className="text-[14px]">
                   <b className="block text-[var(--text-strong)]">{v.n}</b>
                   <span className="text-[var(--text-muted)]">{v.w}</span>
                 </span>

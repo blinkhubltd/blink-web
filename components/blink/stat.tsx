@@ -22,10 +22,10 @@ export function Stat({
       <span className="blink-eyebrow">{label}</span>
       <span className="flex items-baseline gap-1.5">
         <span className="blink-display-3 leading-none">{value}</span>
-        {unit && <span className="text-[13px] text-[var(--text-muted)]">{unit}</span>}
+        {unit && <span className="text-[14px] text-[var(--text-muted)]">{unit}</span>}
       </span>
       {(delta || hint) && (
-        <span className="flex items-center gap-2 text-[13px] text-[var(--text-muted)]">
+        <span className="flex items-center gap-2 text-[14px] text-[var(--text-muted)]">
           {delta && (
             <span className="inline-flex items-center gap-0.5 font-semibold text-success">
               <Icon name="trending-up" size={14} />

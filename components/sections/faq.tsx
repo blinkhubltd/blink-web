@@ -44,7 +44,7 @@ export function Faq() {
                 style={{ gridTemplateRows: open === i ? "1fr" : "0fr" }}
               >
                 <p
-                  className="min-h-0 max-w-[62ch] text-[15px] text-[var(--text-muted)] transition-[padding] duration-240 ease-out overflow-hidden"
+                  className="min-h-0 max-w-[62ch] text-[16px] text-[var(--text-muted)] transition-[padding] duration-240 ease-out overflow-hidden"
                   style={{ paddingBottom: open === i ? 22 : 0 }}
                 >
                   {a}

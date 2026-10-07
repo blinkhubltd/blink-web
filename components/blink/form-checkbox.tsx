@@ -42,9 +42,9 @@ export function FormCheckbox({
       </span>
       {(label || description) && (
         <span className="flex flex-col gap-0.5">
-          {label && <span className="text-[15px] leading-[1.45] text-[var(--text-body)]">{label}</span>}
+          {label && <span className="text-[16px] leading-[1.45] text-[var(--text-body)]">{label}</span>}
           {description && (
-            <span className="text-[13px] text-[var(--text-muted)]">{description}</span>
+            <span className="text-[14px] text-[var(--text-muted)]">{description}</span>
           )}
         </span>
       )}

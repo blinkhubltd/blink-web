@@ -56,10 +56,10 @@ export function SiteFooter() {
         <div className="grid gap-10 lg:grid-cols-[1.6fr_1fr_1fr_1fr_.9fr]">
           <div>
             <Logo size={28} tone="white" />
-            <p className="mt-4 blink-tagline text-[13px] text-blink-400">
+            <p className="mt-4 blink-tagline text-[14px] text-blink-400">
               Faster than U.
             </p>
-            <p className="mt-2 max-w-[30ch] text-[13px] text-ink-400">
+            <p className="mt-2 max-w-[30ch] text-[14px] text-ink-400">
               Groceries, everyday essentials and pharmacy products delivered
               fast across Nairobi.
             </p>
@@ -85,7 +85,7 @@ export function SiteFooter() {
           </div>
           {FOOTER_COLS.map(([title, items]) => (
             <div key={title}>
-              <div className="text-[11px] font-bold tracking-[.08em] uppercase text-ink-500">
+              <div className="text-[12px] font-bold tracking-[.08em] uppercase text-ink-500">
                 {title}
               </div>
               <div className="mt-3.5 flex flex-col gap-2.5">
@@ -93,7 +93,7 @@ export function SiteFooter() {
                   <Link
                     key={label}
                     href={href}
-                    className="border-0 text-[13px] text-ink-300"
+                    className="border-0 text-[14px] text-ink-300"
                   >
                     {label}
                   </Link>
@@ -102,7 +102,7 @@ export function SiteFooter() {
             </div>
           ))}
         </div>
-        <div className="mt-10 border-t border-ink-800 pt-6 text-[11px] text-ink-500">
+        <div className="mt-10 border-t border-ink-800 pt-6 text-[12px] text-ink-500">
           <span>© 2026 Blink Hub Ltd. All rights reserved.</span>
         </div>
       </div>

@@ -26,8 +26,8 @@ const buttonVariants = cva(
           "border-danger bg-danger text-white hover:border-[#c22f27] hover:bg-[#c22f27]",
       },
       size: {
-        sm: "h-[34px] gap-1.5 px-3.5 text-[13px]",
-        md: "h-11 px-5 text-[15px]",
+        sm: "h-[34px] gap-1.5 px-3.5 text-[14px]",
+        md: "h-11 px-5 text-[16px]",
         lg: "h-[52px] gap-2.5 px-[26px] text-base",
         icon: "size-11 p-0",
       },

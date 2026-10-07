@@ -28,12 +28,12 @@ export function Pharmacy() {
             wellness products, find the essentials you need without the extra
             trip.
           </p>
-          <p className="mt-2 text-[15px] font-semibold text-white">
+          <p className="mt-2 text-[16px] font-semibold text-white">
             Carefully prepared. Securely packed. Delivered to your door.
           </p>
           <div className="mt-6 flex flex-col gap-3">
             {FEATURES.map((f) => (
-              <span key={f} className="flex items-center gap-2.5 text-[15px] text-ink-200">
+              <span key={f} className="flex items-center gap-2.5 text-[16px] text-ink-200">
                 <Icon name="check" size={17} className="text-blink-400" />
                 {f}
               </span>

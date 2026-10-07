@@ -55,7 +55,7 @@ export function ProductCard({
           {name}
         </span>
         {description && (
-          <span className="line-clamp-2 text-[13px] text-[var(--text-muted)]">
+          <span className="line-clamp-2 text-[14px] text-[var(--text-muted)]">
             {description}
           </span>
         )}
@@ -64,7 +64,7 @@ export function ProductCard({
             <span className="blink-price">
               {currency} {price}
             </span>
-            {unit && <span className="text-[11px] text-[var(--text-subtle)]">{unit}</span>}
+            {unit && <span className="text-[12px] text-[var(--text-subtle)]">{unit}</span>}
           </span>
           <button
             onClick={onAdd}

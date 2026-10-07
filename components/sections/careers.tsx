@@ -204,7 +204,7 @@ export function Careers() {
                         key={x.id}
                         onClick={() => setRole(x.id)}
                         className={cn(
-                          "inline-flex h-11 items-center gap-2 rounded-full border px-[18px] text-[15px] font-semibold transition-colors duration-150 ease-out",
+                          "inline-flex h-11 items-center gap-2 rounded-full border px-[18px] text-[16px] font-semibold transition-colors duration-150 ease-out",
                           role === x.id
                             ? "border-blink-400 bg-blink-400 text-ink-950"
                             : "border-ink-700 bg-transparent text-ink-200"
@@ -212,7 +212,7 @@ export function Careers() {
                       >
                         <Icon name={x.icon} size={17} />
                         {x.label}
-                        <span className="text-[11px] font-bold opacity-70">{x.openings}</span>
+                        <span className="text-[12px] font-bold opacity-70">{x.openings}</span>
                       </button>
                     ))}
                   </div>
@@ -230,7 +230,7 @@ export function Careers() {
                   <div key={small} className="rounded-[14px] border border-ink-800 bg-ink-900 p-[18px]">
                     <Icon name={icon as IconName} size={20} className="text-blink-400" />
                     <div className="blink-display-3 mt-3 text-[26px] text-white">{big}</div>
-                    <div className="text-[13px] text-ink-400">{small}</div>
+                    <div className="text-[14px] text-ink-400">{small}</div>
                   </div>
                 ))}
               </div>
@@ -256,7 +256,7 @@ export function Careers() {
                   </span>
                   <div>
                     <h2 className="text-[28px]">{r.label}</h2>
-                    <span className="text-[13px] text-[var(--text-muted)]">
+                    <span className="text-[14px] text-[var(--text-muted)]">
                       Nairobi · {r.openings} openings
                     </span>
                   </div>
@@ -267,10 +267,10 @@ export function Careers() {
                 <div className="mt-[26px] grid grid-cols-3 gap-4 border-t border-[var(--border-subtle)] pt-[22px]">
                   {r.facts.map(([k, v]) => (
                     <span key={k} className="flex flex-col gap-1">
-                      <span className="text-[11px] font-bold tracking-[.08em] uppercase text-[var(--text-subtle)]">
+                      <span className="text-[12px] font-bold tracking-[.08em] uppercase text-[var(--text-subtle)]">
                         {k}
                       </span>
-                      <span className="text-[15px] font-medium text-[var(--text-strong)]">{v}</span>
+                      <span className="text-[16px] font-medium text-[var(--text-strong)]">{v}</span>
                     </span>
                   ))}
                 </div>
@@ -281,7 +281,7 @@ export function Careers() {
                   <Card key={title} padding="md" interactive>
                     <Icon name={icon} size={21} className="text-ink-950" />
                     <h4 className="mt-3.5">{title}</h4>
-                    <p className="mt-1.5 text-[13px] text-[var(--text-muted)]">{body}</p>
+                    <p className="mt-1.5 text-[14px] text-[var(--text-muted)]">{body}</p>
                   </Card>
                 ))}
               </RevealGroup>
@@ -314,7 +314,7 @@ export function Careers() {
                       </span>
                       <span>
                         <h3>{title}</h3>
-                        <p className="mt-1.5 max-w-[38ch] text-[15px] text-[var(--text-muted)]">{body}</p>
+                        <p className="mt-1.5 max-w-[38ch] text-[16px] text-[var(--text-muted)]">{body}</p>
                       </span>
                     </div>
                   </Reveal>
@@ -331,7 +331,7 @@ export function Careers() {
                       <span className="flex size-8 items-center justify-center rounded-full bg-ink-950 text-[12px] font-bold text-blink-400">
                         {c.i}
                       </span>
-                      <span className="text-[13px]">
+                      <span className="text-[14px]">
                         <b className="text-[var(--text-strong)]">{c.n}</b>
                         <span className="text-[var(--text-muted)]"> · {c.r}</span>
                       </span>
@@ -408,7 +408,7 @@ export function Careers() {
                   >
                     {submitting ? "Sending…" : "Submit application"}
                   </Button>
-                  <p className="text-center text-[11px] text-[var(--text-subtle)]">
+                  <p className="text-center text-[12px] text-[var(--text-subtle)]">
                     Sends to {CAREERS_EMAIL}.
                   </p>
                 </div>

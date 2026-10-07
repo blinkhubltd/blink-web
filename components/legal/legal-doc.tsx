@@ -193,7 +193,7 @@ export function LegalDocument({ doc }: { doc: LegalDoc }) {
           })}
 
           <div className="legal-no-print mt-14 border-t border-[var(--border-subtle)] pt-8">
-            <div className="text-[11px] font-bold tracking-[.08em] text-ink-500 uppercase">
+            <div className="text-[12px] font-bold tracking-[.08em] text-ink-500 uppercase">
               Related documents
             </div>
             <div className="mt-3 flex flex-wrap gap-3">

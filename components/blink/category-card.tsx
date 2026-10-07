@@ -37,7 +37,7 @@ export function CategoryCard({
           <Image src={image} alt="" fill sizes="400px" className="object-cover" />
         )}
         {count != null && (
-          <span className="absolute bottom-3 left-3 rounded-full bg-ink-950 px-2.5 py-1.5 text-[11px] font-semibold text-white">
+          <span className="absolute bottom-3 left-3 rounded-full bg-ink-950 px-2.5 py-1.5 text-[12px] font-semibold text-white">
             {count} items
           </span>
         )}
@@ -47,12 +47,12 @@ export function CategoryCard({
           {title}
         </span>
         {description && (
-          <span className="text-[13px] leading-[1.5] text-[var(--text-muted)]">
+          <span className="text-[14px] leading-[1.5] text-[var(--text-muted)]">
             {description}
           </span>
         )}
         <span className="mt-auto flex items-center justify-between gap-3 pt-3.5">
-          <span className="text-[15px] font-medium text-[var(--text-muted)] transition-colors group-hover:text-[var(--text-strong)]">
+          <span className="text-[16px] font-medium text-[var(--text-muted)] transition-colors group-hover:text-[var(--text-strong)]">
             {cta}
           </span>
           <span className="flex size-[38px] items-center justify-center rounded-full bg-ink-100 text-ink-950 transition-colors group-hover:bg-blink-400">

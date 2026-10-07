@@ -28,14 +28,14 @@ export default function ContactPage() {
           <div className="mt-8 flex flex-col gap-4">
             <a
               href={`mailto:${EMAIL}`}
-              className="flex items-center gap-3 border-0 text-[15px]"
+              className="flex items-center gap-3 border-0 text-[16px]"
             >
               <span className="flex size-[40px] flex-none items-center justify-center rounded-full bg-blink-400 text-ink-950">
                 <Icon name="mail" size={18} />
               </span>
               {EMAIL}
             </a>
-            <div className="flex items-center gap-3 text-[15px]">
+            <div className="flex items-center gap-3 text-[16px]">
               <span className="flex size-[40px] flex-none items-center justify-center rounded-full bg-blink-400 text-ink-950">
                 <Icon name="map-pin" size={18} />
               </span>

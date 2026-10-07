@@ -19,7 +19,7 @@ export function FormSelect({
     <div className="relative w-full">
       <select
         className={cn(
-          "h-11 w-full appearance-none rounded-[var(--radius-md)] border bg-[var(--surface-card)] pr-9 pl-3 text-[15px] text-[var(--text-strong)] outline-none transition-shadow duration-150 ease-out focus:ring-3",
+          "h-11 w-full appearance-none rounded-[var(--radius-md)] border bg-[var(--surface-card)] pr-9 pl-3 text-[16px] text-[var(--text-strong)] outline-none transition-shadow duration-150 ease-out focus:ring-3",
           invalid
             ? "border-danger focus:ring-danger-soft"
             : "border-ink-300 focus:border-ink-950 focus:ring-blink-200",

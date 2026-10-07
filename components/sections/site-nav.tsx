@@ -32,7 +32,7 @@ function NavLink({
     <Link
       href={href}
       className={cn(
-        "group relative border-0 pb-[3px] text-[15px] font-medium whitespace-nowrap transition-colors duration-240 ease-out",
+        "group relative border-0 pb-[3px] text-[16px] font-medium whitespace-nowrap transition-colors duration-240 ease-out",
         active ? "text-ink-950" : "text-[var(--text-body)] hover:text-ink-950",
       )}
     >
@@ -119,7 +119,7 @@ export function SiteNav() {
             icon="download"
             size="sm"
             onClick={openStore}
-            className="lg:h-11 lg:px-5 lg:text-[15px]"
+            className="lg:h-11 lg:px-5 lg:text-[16px]"
           >
             Get the app
           </Button>

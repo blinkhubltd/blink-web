@@ -68,7 +68,7 @@ export function Popular() {
             <ProductCard key={p.name} {...p} onAdd={openStore} />
           ))}
         </RevealGroup>
-        <p className="mt-[18px] text-[13px] text-[var(--text-subtle)]">
+        <p className="mt-[18px] text-[14px] text-[var(--text-subtle)]">
           Prices and availability may vary by location. Open Blink to see
           what&apos;s available from your nearest hub.
         </p>

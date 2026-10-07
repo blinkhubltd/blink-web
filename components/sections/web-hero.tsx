@@ -42,7 +42,7 @@ function FloatingChip({
 }) {
   return (
     <span
-      className="inline-flex items-center gap-2 rounded-full bg-white px-3.5 py-2.5 text-[13px] font-semibold whitespace-nowrap text-ink-950 shadow-md"
+      className="inline-flex items-center gap-2 rounded-full bg-white px-3.5 py-2.5 text-[14px] font-semibold whitespace-nowrap text-ink-950 shadow-md"
       style={{ animation: "blink-float 6s var(--ease-in-out) infinite", animationDelay: delay }}
     >
       <Icon name={icon} size={15} className="text-blink-500" />
@@ -79,10 +79,10 @@ export function WebHero() {
       <div className="blink-container grid items-center gap-9 py-12 px-7 lg:grid-cols-[1.05fr_.95fr] lg:gap-9">
         <div className="min-w-0 lg:pb-12">
           <Reveal>
-            <span className="blink-tagline text-[15px] text-blink-800">Faster than U.</span>
+            <span className="blink-tagline text-[16px] text-blink-800">Faster than U.</span>
           </Reveal>
           <Reveal delay={60}>
-            <h1 className="blink-display-1 mt-3 max-w-[20 ch] text-ink-800">
+            <h1 className="blink-display-1 mt-3 max-w-[20ch] text-ink-800">
               Everything you need.
               <br />
               At your door in <CountUp />.
@@ -103,7 +103,7 @@ export function WebHero() {
           </Reveal>
 
           <Reveal delay={180}>
-            <p className="mt-5 blink-tagline text-[15px] text-ink-950">
+            <p className="mt-5 blink-tagline text-[16px] text-ink-950">
               The future of grocery shopping is instant.
             </p>
             <div className="mt-6 flex flex-row items-start gap-3">

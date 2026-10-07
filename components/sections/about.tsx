@@ -49,7 +49,7 @@ export function About() {
           <Reveal delay={200}>
             <div className="mt-8 max-w-[46ch] border-t border-[var(--border-subtle)] pt-8">
               <h3 className="text-[20px]">Faster starts closer.</h3>
-              <p className="mt-2.5 text-[15px] text-[var(--text-muted)]">
+              <p className="mt-2.5 text-[16px] text-[var(--text-muted)]">
                 Instead of sending every order across the city, Blink operates
                 from hubs positioned close to the neighbourhoods they serve.
                 That means less distance between your order and your door.
@@ -67,7 +67,7 @@ export function About() {
               </span>
               <div>
                 <h3 className="text-[18px]">{v.title}</h3>
-                <p className="mt-1.5 text-[15px] text-[var(--text-muted)]">{v.body}</p>
+                <p className="mt-1.5 text-[16px] text-[var(--text-muted)]">{v.body}</p>
               </div>
             </div>
           ))}

@@ -24,7 +24,7 @@ export function StoreDialog({
           <DialogTitle className="blink-display-3 text-2xl">
             Blink lives in the app
           </DialogTitle>
-          <DialogDescription className="text-[15px] leading-[1.55] text-[var(--text-muted)]">
+          <DialogDescription className="text-[16px] leading-[1.55] text-[var(--text-muted)]">
             Shopping, payment and tracking all happen in the Blink app. Grab it
             and your first order is 10 minutes away.
           </DialogDescription>
@@ -35,7 +35,7 @@ export function StoreDialog({
             <StoreBadge store="ios" />
             <StoreBadge store="android" />
           </div>
-          <span className="text-[13px] text-[var(--text-muted)]">
+          <span className="text-[14px] text-[var(--text-muted)]">
             Available on iOS 15+ and Android 9+.
           </span>
         </div>

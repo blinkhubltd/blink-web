@@ -105,7 +105,7 @@ export function LaunchRequest() {
               </span>
               <div>
                 <h3 className="text-[22px]">Bring Blink closer.</h3>
-                <span className="text-[13px] text-[var(--text-muted)]">
+                <span className="text-[14px] text-[var(--text-muted)]">
                   Tell us where you&apos;d like to see Blink next. The more
                   demand we see in an area, the better we can plan where to
                   expand.
@@ -196,7 +196,7 @@ export function LaunchRequest() {
                 {submitting ? "Sending…" : "Request Blink"}
               </Button>
             </div>
-            <p className="mt-3 text-center text-[11px] text-[var(--text-subtle)]">
+            <p className="mt-3 text-center text-[12px] text-[var(--text-subtle)]">
               Sends to {ADMIN_EMAIL}. We reply within a week.
             </p>
           </Card>

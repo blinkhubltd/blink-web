@@ -54,16 +54,16 @@ export function HowItWorks() {
               <span className="relative flex size-14 items-center justify-center rounded-full bg-blink-400 text-ink-950">
                 <Icon name={s.icon} size={26} />
               </span>
-              <span className="relative text-[11px] font-bold tracking-[.08em] text-[var(--text-subtle)]">
+              <span className="relative text-[12px] font-bold tracking-[.08em] text-[var(--text-subtle)]">
                 STEP {i + 1}
               </span>
               <h3 className="relative text-[22px]">{s.title}</h3>
-              <p className="relative max-w-[34ch] text-[15px] text-[var(--text-muted)]">{s.body}</p>
+              <p className="relative max-w-[34ch] text-[16px] text-[var(--text-muted)]">{s.body}</p>
             </Card>
           ))}
         </RevealGroup>
         <Reveal delay={220}>
-          <p className="mt-11 text-[13px] text-[var(--text-subtle)]">
+          <p className="mt-11 text-[14px] text-[var(--text-subtle)]">
             Track every step from the app.
           </p>
           <p className="mt-1.5 text-[18px] font-semibold text-[var(--text-strong)]">
