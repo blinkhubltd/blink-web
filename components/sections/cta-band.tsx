@@ -7,7 +7,7 @@ export function CtaBand() {
     <section className="blink-brand relative overflow-hidden bg-blink-400 py-20">
       <div className="blink-container relative flex flex-wrap items-center justify-between gap-10">
         <Reveal>
-          <span className="blink-tagline text-[15px] text-blink-800">Faster than U.</span>
+          <span className="blink-tagline text-[16px] text-blink-800">Faster than U.</span>
           <h2 className="blink-display-2 mt-3 max-w-[18ch] text-ink-950">
             Your shopping is 10 minutes away.
           </h2>

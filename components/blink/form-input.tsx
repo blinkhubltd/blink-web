@@ -25,7 +25,7 @@ export function FormInput({
     >
       {icon && <Icon name={icon} size={16} className="shrink-0 text-[var(--text-subtle)]" />}
       <input
-        className="h-full min-w-0 flex-1 border-0 bg-transparent text-[15px] text-[var(--text-strong)] outline-none placeholder:text-[var(--text-subtle)]"
+        className="h-full min-w-0 flex-1 border-0 bg-transparent text-[16px] text-[var(--text-strong)] outline-none placeholder:text-[var(--text-subtle)]"
         {...rest}
       />
     </div>

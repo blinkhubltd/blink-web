@@ -22,7 +22,7 @@ export function Field({
   return (
     <div className={cn("flex flex-col gap-1.5", className)}>
       {label && (
-        <label htmlFor={htmlFor} className="text-[13px] font-semibold text-[var(--text-strong)]">
+        <label htmlFor={htmlFor} className="text-[14px] font-semibold text-[var(--text-strong)]">
           {label}
           {required && <span className="ml-0.5 text-danger">*</span>}
         </label>
@@ -31,7 +31,7 @@ export function Field({
       {(error || hint) && (
         <span
           className={cn(
-            "inline-flex items-center gap-1 text-[13px]",
+            "inline-flex items-center gap-1 text-[14px]",
             error ? "text-danger" : "text-[var(--text-muted)]"
           )}
         >

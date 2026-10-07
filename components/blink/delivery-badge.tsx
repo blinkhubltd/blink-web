@@ -1,8 +1,8 @@
 import { cn } from "@/lib/utils";
 
 const SIZES = {
-  sm: { h: 30, fs: "text-[11px]", px: "px-[11px]", icon: 17 },
-  md: { h: 38, fs: "text-[13px]", px: "px-[15px]", icon: 21 },
+  sm: { h: 30, fs: "text-[12px]", px: "px-[11px]", icon: 17 },
+  md: { h: 38, fs: "text-[14px]", px: "px-[15px]", icon: 21 },
   lg: { h: 52, fs: "text-[17px]", px: "px-6", icon: 30 },
 } as const;
 

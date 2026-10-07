@@ -75,7 +75,7 @@ export function LegalToc({ sections }: { sections: Section[] }) {
     <>
       {/* Mobile: a disclosure above the document. */}
       <details className="legal-no-print mb-10 rounded-[var(--radius-card)] border border-[var(--border-subtle)] bg-white lg:hidden">
-        <summary className="flex cursor-pointer list-none items-center justify-between px-4 py-3 text-[13px] font-bold tracking-[.08em] text-ink-600 uppercase">
+        <summary className="flex cursor-pointer list-none items-center justify-between px-4 py-3 text-[14px] font-bold tracking-[.08em] text-ink-600 uppercase">
           Contents
           <Icon name="chevron-down" size={16} />
         </summary>
@@ -96,7 +96,7 @@ export function LegalToc({ sections }: { sections: Section[] }) {
         className="legal-no-print sticky hidden self-start lg:block"
         style={{ top: "calc(var(--web-nav-h) + 32px)" }}
       >
-        <div className="text-[11px] font-bold tracking-[.08em] text-ink-500 uppercase">
+        <div className="text-[12px] font-bold tracking-[.08em] text-ink-500 uppercase">
           Contents
         </div>
         <div
@@ -108,7 +108,7 @@ export function LegalToc({ sections }: { sections: Section[] }) {
         <button
           type="button"
           onClick={() => window.print()}
-          className="mt-6 flex items-center gap-2 border-0 text-[13px] font-medium text-ink-600 transition-colors hover:text-ink-950"
+          className="mt-6 flex items-center gap-2 border-0 text-[14px] font-medium text-ink-600 transition-colors hover:text-ink-950"
         >
           <Icon name="printer" size={15} />
           Print or save as PDF

@@ -49,7 +49,7 @@ export function AppFeatures() {
               <p className="mt-4 max-w-[42ch] text-lg text-[var(--text-muted)]">{f.body}</p>
               <div className="mt-[22px] flex flex-col gap-[11px]">
                 {f.bullets.map((b) => (
-                  <span key={b} className="flex items-center gap-2.5 text-[15px] text-[var(--text-body)]">
+                  <span key={b} className="flex items-center gap-2.5 text-[16px] text-[var(--text-body)]">
                     <Icon name="check" size={17} className="text-blink-600" />
                     {b}
                   </span>

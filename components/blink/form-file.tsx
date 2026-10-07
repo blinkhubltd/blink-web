@@ -33,7 +33,7 @@ export function FormFile({
       <Icon name="paperclip" size={16} className="shrink-0 text-[var(--text-subtle)]" />
       <span
         className={cn(
-          "min-w-0 flex-1 truncate text-[15px]",
+          "min-w-0 flex-1 truncate text-[16px]",
           value ? "text-[var(--text-strong)]" : "text-[var(--text-subtle)]"
         )}
       >
@@ -54,7 +54,7 @@ export function FormFile({
       )}
       <label
         htmlFor={inputId}
-        className="flex h-8 flex-none cursor-pointer items-center rounded-[var(--radius-sm)] bg-ink-100 px-3 text-[13px] font-medium text-ink-950 hover:bg-ink-200"
+        className="flex h-8 flex-none cursor-pointer items-center rounded-[var(--radius-sm)] bg-ink-100 px-3 text-[14px] font-medium text-ink-950 hover:bg-ink-200"
       >
         Choose file
       </label>
